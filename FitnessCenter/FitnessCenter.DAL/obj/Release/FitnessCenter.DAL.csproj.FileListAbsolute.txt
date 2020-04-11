@@ -1,0 +1,11 @@
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\bin\Release\FitnessCenter.DAL.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\bin\Release\FitnessCenter.DAL.pdb
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\bin\Release\FitnessCenter.DAL.Interface.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\bin\Release\FitnessCenter.Entities.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\bin\Release\FitnessCenter.DAL.Interface.pdb
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\bin\Release\FitnessCenter.Entities.pdb
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Release\FitnessCenter.DAL.csprojAssemblyReference.cache
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Release\FitnessCenter.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Release\FitnessCenter.DAL.csproj.CopyComplete
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Release\FitnessCenter.DAL.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Release\FitnessCenter.DAL.pdb

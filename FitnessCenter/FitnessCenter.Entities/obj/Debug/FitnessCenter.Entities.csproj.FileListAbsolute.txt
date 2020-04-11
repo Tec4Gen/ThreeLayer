@@ -1,0 +1,5 @@
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Entities\bin\Debug\FitnessCenter.Entities.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Entities\bin\Debug\FitnessCenter.Entities.pdb
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.pdb

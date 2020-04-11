@@ -1,0 +1,9 @@
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\bin\Release\FitnessCenter.BLL.Interface.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\bin\Release\FitnessCenter.BLL.Interface.pdb
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\bin\Release\FitnessCenter.Entities.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\bin\Release\FitnessCenter.Entities.pdb
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\obj\Release\FitnessCenter.BLL.Interface.csprojAssemblyReference.cache
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\obj\Release\FitnessCenter.BLL.Interface.csproj.CoreCompileInputs.cache
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\obj\Release\FitnessCenter.BLL.Interface.csproj.CopyComplete
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\obj\Release\FitnessCenter.BLL.Interface.dll
+C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.BLL.Interface\obj\Release\FitnessCenter.BLL.Interface.pdb
