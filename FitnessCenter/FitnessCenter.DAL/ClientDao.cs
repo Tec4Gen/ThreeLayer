@@ -30,24 +30,24 @@ namespace FitnessCenter.DAL
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                var command = connection.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = "SELECT [ID],[FirstName],[LastName] ,[MiddleName],[SubscriptionNumber],[IDCoach] FROM[FitnessCenter].[dbo].[Client]";
-
+                var command = new SqlCommand("Sp_GetClients", connection);
+                //command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                // command.CommandText = "SELECT [ID],[FirstName],[LastName] ,[MiddleName],[SubscriptionNumber],[IDCoach] FROM[FitnessCenter].[dbo].[Client]";
                 connection.Open();
 
-                var reader = command.ExecuteReader();
 
+                var reader = command.ExecuteReader();
                 while (reader.Read())  
                 {
-                    Client.Add(new Client() 
+                    Client.Add(new Client()
                     {
-                       Id = (int) reader["ID"],
-                       Firstname = reader["FirstName"] as string,
-                       LastName = reader ["LastName"] as string,
-                       MiddleName = reader["MiddleName"] as string,
-                       SubscriptionNumber = (int)reader["SubscriptionNumber"],
-                       IDCoach = (decimal) reader["IDCoach"]
+                        Id = (int) reader["ID"],
+                        Firstname = reader["FirstName"] as string,
+                        LastName = reader["LastName"] as string,
+                        MiddleName = reader["MiddleName"] as string,
+                        SubscriptionNumber = (int)reader["SubscriptionNumber"],
+                        IDCoach = (int)reader["IDCoach"]
                     });
                 }
             }

@@ -9,3 +9,14 @@ C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCente
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.csproj.CopyComplete
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.dll
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.DAL.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.DAL.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.DAL.Interface.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.Entities.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.DAL.Interface.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.Entities.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.csprojAssemblyReference.cache
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.csproj.CopyComplete
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.pdb

@@ -49,6 +49,10 @@
       <Project>{5179E574-5FDE-4742-8D59-FFF8754FC605}</Project>
       <Name>FitnessCenter.BLL.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FitnessCenter.BLL\FitnessCenter.BLL.csproj">
+      <Project>{eb4b8d07-bc91-465a-b971-ed2b736f7a9b}</Project>
+      <Name>FitnessCenter.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FitnessCenter.DAL.Interface\FitnessCenter.DAL.Interface.csproj">
       <Project>{5D6FF352-F642-4EBB-BBF0-815735046FF5}</Project>
       <Name>FitnessCenter.DAL.Interface</Name>
@@ -56,10 +60,6 @@
     <ProjectReference Include="..\FitnessCenter.DAL\FitnessCenter.DAL.csproj">
       <Project>{BD88326B-C017-4E3F-992C-FA06561A6468}</Project>
       <Name>FitnessCenter.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FitnessCenter\FitnessCenter.BLL.csproj">
-      <Project>{eb4b8d07-bc91-465a-b971-ed2b736f7a9b}</Project>
-      <Name>FitnessCenter.BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
