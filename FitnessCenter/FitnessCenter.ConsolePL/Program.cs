@@ -16,7 +16,7 @@ namespace FitnessCenter.ConsolePL
             var a = clinetLogic.GetAll();
             foreach (var item in a)
             {
-                Console.WriteLine($"{item.Id}, {item.Firstname}, {item.LastName}, {item.MiddleName}, {item.SubscriptionNumber}, {item.IDCoach}");
+                Console.WriteLine($"{item.Id}|{item.Firstname}|{item.LastName}|{item.MiddleName}|{item.SubscriptionNumber}|{item.IDCoach}");
             }
         }
     }

@@ -13,6 +13,6 @@ namespace FitnessCenter.Entities
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public int SubscriptionNumber { get; set; }
-        public decimal IDCoach { get; set; }
+        public int? IDCoach { get; set; }
     }
 }

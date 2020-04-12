@@ -47,7 +47,7 @@ namespace FitnessCenter.DAL
                         LastName = reader["LastName"] as string,
                         MiddleName = reader["MiddleName"] as string,
                         SubscriptionNumber = (int)reader["SubscriptionNumber"],
-                        IDCoach = (int)reader["IDCoach"]
+                        IDCoach = reader["IDCoach"] as int?
                     });
                 }
             }
