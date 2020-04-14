@@ -15,22 +15,28 @@ namespace FitnessCenter.ConsolePL
 
             var clinetLogic = DependenciesResolver.ClientLogic;
 
-            clinetLogic.Add(new Client()
-            {
-                FirstName = "Иван",
-                LastName = "Иванов",
-                MiddleName = "Петрович",
-                SubscriptionNumber = 56987,
-                //IdCoach = NULL
-            });
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Иван",
+            //    LastName = "Иванов",
+            //    MiddleName = "Петрович",
+            //    SubscriptionNumber = 56987,
+            //    //IdCoach = NULL
+            //});
+            Client a;
 
-            var ClientAll = clinetLogic.GetAll();
+            a = clinetLogic.Delete(11111);
+            Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.SubscriptionNumber}|{a.IDCoach}");
+
+            //var ClientAll = clinetLogic.GetAll();
 
 
-            foreach (var item in ClientAll)
-            {
-                Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.SubscriptionNumber}|{item.IDCoach}");
-            }
+            //foreach (var item in ClientAll)
+            //{
+            //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.SubscriptionNumber}|{item.IDCoach}");
+            //}
+
+
 
 
         }

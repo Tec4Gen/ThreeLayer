@@ -14,6 +14,8 @@ namespace FitnessCenter.DAL.Interface
         Client GetById(int id);
 
         IEnumerable<Client> GetAll();
+
+        Client Delete(int subnumber);
     }
 }
  

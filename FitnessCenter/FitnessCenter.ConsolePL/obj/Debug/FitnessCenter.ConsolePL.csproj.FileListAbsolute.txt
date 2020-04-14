@@ -18,6 +18,8 @@ C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\Fitnes
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.csproj.CopyComplete
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.exe
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.csprojAssemblyReference.cache
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.csproj.CoreCompileInputs.cache
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\FitnessCenter.ConsolePL.exe.config
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\FitnessCenter.ConsolePL.exe
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\FitnessCenter.ConsolePL.pdb
@@ -33,8 +35,6 @@ C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\FitnessCenter.DAL.Interface.pdb
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\FitnessCenter.DAL.pdb
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\FitnessCenter.pdb
-C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.csprojAssemblyReference.cache
-C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.csproj.CoreCompileInputs.cache
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.csproj.CopyComplete
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.exe
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.pdb

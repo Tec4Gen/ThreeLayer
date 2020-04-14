@@ -15,10 +15,6 @@ C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCe
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.csproj.CopyComplete
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.dll
 C:\Users\Neo\source\repos\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.pdb
-C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.csprojAssemblyReference.cache
-C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.csproj.CoreCompileInputs.cache
-C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.dll
-C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.pdb
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\bin\Debug\FitnessCenter.Ioc.dll
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\bin\Debug\FitnessCenter.Ioc.pdb
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\bin\Debug\FitnessCenter.BLL.Interface.dll
@@ -31,4 +27,8 @@ C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\bin\Debug\Fit
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\bin\Debug\FitnessCenter.DAL.Interface.pdb
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\bin\Debug\FitnessCenter.DAL.pdb
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\bin\Debug\FitnessCenter.Entities.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.csprojAssemblyReference.cache
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.csproj.CoreCompileInputs.cache
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.csproj.CopyComplete
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Common\obj\Debug\FitnessCenter.Ioc.pdb

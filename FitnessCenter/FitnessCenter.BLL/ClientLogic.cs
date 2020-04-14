@@ -1,35 +1,36 @@
 ﻿using FitnessCenter.BLL.Interface;
 using FitnessCenter.DAL.Interface;
 using FitnessCenter.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitnessCenter
 {
     public class ClientLogic : IClientLogic
     {
-        private IClientDao _clinetdao;
+        private IClientDao _clientdao;
         public ClientLogic(IClientDao clinetdao)
         {
-            _clinetdao = clinetdao;
+            _clientdao = clinetdao;
         }
 
         public int Add(Client item)
         {
-            return _clinetdao.Add(item);
+            return _clientdao.Add(item);
         }
 
         public IEnumerable<Client> GetAll()
         {
-            return _clinetdao.GetAll();
+            return _clientdao.GetAll();
         }
 
         public Client GetById(int id)
         {
-            return _clinetdao.GetById(id);
+            return _clientdao.GetById(id);
+        }
+
+        public Client Delete(int subnumber) 
+        {
+            return _clientdao.Delete(subnumber);
         }
     }
 }
