@@ -1,10 +1,6 @@
 ﻿using FitnessCenter.Common;
 using FitnessCenter.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitnessCenter.ConsolePL
 {
@@ -39,7 +35,6 @@ namespace FitnessCenter.ConsolePL
             //    LastName = "Ионов",
             //    MiddleName = "Серьгеевич",
             //    Phone = 9172456566,
-
             //});
 
             //coachLogic.Add(new Coach()
@@ -59,17 +54,23 @@ namespace FitnessCenter.ConsolePL
 
 
             //var ClientAll = clinetLogic.GetAll();
-            Coach a;
-            var all = coachLogic.GetAll();
+            //var all = coachLogic.GetAll();
 
-            foreach (var item in all)
-            {
-                Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
-            }
+            //foreach (var item in all)
+            //{
+            //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
+            //}
+            //Console.WriteLine();
 
+            var a = coachLogic.GetByPhone(9172456566);
 
+            //foreach (var item in a)
+            //{
+            //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
+            //}
 
-
+            Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.Phone}");
+            //Console.WriteLine();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace FitnessCenter.BLL.Interface
 
         Coach Delete(long phone);
 
-        int GetById(int id);
+        Coach GetById(int id);
 
         Coach GetByPhone(long phone);
 

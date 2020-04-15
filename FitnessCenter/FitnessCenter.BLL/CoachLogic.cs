@@ -29,7 +29,7 @@ namespace FitnessCenter
             return _coachDao.GetAll();
         }
 
-        public int GetById(int id)
+        public Coach GetById(int id)
         {
             return _coachDao.GetById(id);
         }
