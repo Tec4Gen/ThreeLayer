@@ -13,32 +13,59 @@ namespace FitnessCenter.ConsolePL
         static void Main(string[] args)
         {
 
-            var clinetLogic = DependenciesResolver.ClientLogic;
+            //var clinetLogic = DependenciesResolver.ClientLogic;
+            var coachLogic = DependenciesResolver.CoachLogic;
 
-            //clinetLogic.Add(new Client()
+            //coachLogic.Add(new Coach()
             //{
             //    FirstName = "Иван",
             //    LastName = "Иванов",
             //    MiddleName = "Петрович",
-            //    SubscriptionNumber = 569871,
+            //    Phone = 9172006302,
             //    //IdCoach = NULL
             //});
 
-            //Client a;
+            //coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Андрей",
+            //    LastName = "Попов",
+            //    MiddleName = "Юрьевич",
+            //    Phone = 9256987741,
+            //});
 
-            var a = clinetLogic.Delete(1111);
-            //Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.SubscriptionNumber}|{a.IDCoach}");
+            //coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Алексей",
+            //    LastName = "Ионов",
+            //    MiddleName = "Серьгеевич",
+            //    Phone = 9172456566,
+
+            //});
+
+            //coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Олег",
+            //    LastName = "Игнатьев",
+            //    MiddleName = "Игоревич",
+            //    Phone = 9201495878,
+            //});
+
+
+
+            // var  a = coachLogic.Delete(9172006302);
+            // Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.Phone}");
 
             //a = clinetLogic.Delete(11111);
 
 
             //var ClientAll = clinetLogic.GetAll();
+            Coach a;
+            var all = coachLogic.GetAll();
 
-
-            //foreach (var item in a)
-            //{
-            //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.SubscriptionNumber}|{item.IDCoach}");
-            //}
+            foreach (var item in all)
+            {
+                Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
+            }
 
 
 

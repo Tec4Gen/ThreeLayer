@@ -1,15 +1,22 @@
 ﻿using FitnessCenter.Entities;
+using System;
+using System.Collections.Generic;
 
 namespace FitnessCenter.DAL.Interface
 {
-    interface ICoachDao
+    public interface ICoachDao
     {
-        int Add(Client item);
+        int Add(Coach item);
 
-        Coach Delete(ulong phone);
+        Coach Delete(long phone);
 
         int GetById(int id);
 
-        Coach GetByPhone(ulong phone);
+        Coach GetByPhone(long phone);
+
+        IEnumerable<Coach> GetByLastName(string lastname);
+
+        IEnumerable<Coach> GetAll();
+        
     }
 }

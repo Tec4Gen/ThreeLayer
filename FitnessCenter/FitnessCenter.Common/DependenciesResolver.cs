@@ -11,7 +11,12 @@ namespace FitnessCenter.Common
 {
     public static class DependenciesResolver
     {
-        public static IClientDao ClientDao { get; set; } = new ClientDao();
-        public static IClientLogic ClientLogic { get; set; } = new ClientLogic(ClientDao);
+        private static IClientDao _clientDao { get; set; } = new ClientDao();
+        public static IClientLogic ClientLogic { get; set; } = new ClientLogic(_clientDao);
+
+        private static ICoachDao _coachDao { get; set; } = new CoachDao();
+
+        public static ICoachLogic CoachLogic { get; set; } = new CoachLogic(_coachDao);
     }
+
 }
