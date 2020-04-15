@@ -1,9 +1,5 @@
 ﻿using FitnessCenter.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitnessCenter.DAL.Interface
 {
@@ -11,11 +7,19 @@ namespace FitnessCenter.DAL.Interface
     {
         int Add(Client item);
 
+        Client Delete(int subnumber);
+
         Client GetById(int id);
+
+        Client GetBySubNumber(int id);
+
+        IEnumerable<Client> GetByLastName(string lastname);
 
         IEnumerable<Client> GetAll();
 
-        Client Delete(int subnumber);
+        
+
+
     }
 }
  

@@ -7,10 +7,15 @@ namespace FitnessCenter.BLL.Interface
     {
         int Add(Client item);
 
+        Client Delete(int subnumber);
+
         Client GetById(int id);
+
+        Client GetBySubNumber(int subnumber);
+
+        IEnumerable<Client> GetByLastName(string lastname);
 
         IEnumerable<Client> GetAll();
 
-        Client Delete(int subnumber);
     }
 }

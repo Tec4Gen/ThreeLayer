@@ -17,20 +17,29 @@ namespace FitnessCenter
         {
             return _clientdao.Add(item);
         }
+        public Client Delete(int subnumber)
+        {
+            return _clientdao.Delete(subnumber);
+        }
+
+        public Client GetById(int id) 
+        {
+            return _clientdao.GetById(id);   
+        }
 
         public IEnumerable<Client> GetAll()
         {
             return _clientdao.GetAll();
         }
 
-        public Client GetById(int id)
+        public Client GetBySubNumber(int subnumber)
         {
-            return _clientdao.GetById(id);
+            return _clientdao.GetBySubNumber(subnumber);
         }
 
-        public Client Delete(int subnumber) 
+        public IEnumerable<Client> GetByLastName(string lastname) 
         {
-            return _clientdao.Delete(subnumber);
+            return _clientdao.GetByLastName(lastname);
         }
     }
 }

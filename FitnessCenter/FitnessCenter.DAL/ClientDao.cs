@@ -123,6 +123,86 @@ namespace FitnessCenter.DAL
             }
         }
 
+        public Client GetBySubNumber(int subnumber)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                Client Client = new Client();
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_GetBySubNumberClient";
+                command.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                SqlParameter IdParameter = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@SubscriptionNumber",
+                    Value = subnumber,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(IdParameter);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Client.Id = (int)reader["ID"];
+                    Client.FirstName = reader["FirstName"] as string;
+                    Client.LastName = reader["LastName"] as string;
+                    Client.MiddleName = reader["MiddleName"] as string;
+                    Client.SubscriptionNumber = (int)reader["SubscriptionNumber"];
+                    Client.IDCoach = reader["IDcoach"] as int?;
+                }
+                else
+                {
+                    return null;
+                }
+
+                return Client;
+            }
+        }
+
+        public IEnumerable<Client> GetByLastName(string lastname) 
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Client> Client = new List<Client>();
+
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = "dbo.Sp_GetByLastNameClient";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterLastName = new SqlParameter()
+                {
+                    DbType = DbType.String,
+                    ParameterName = "@LastName",
+                    Value = lastname,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterLastName);
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Client.Add(new Client()
+                    {
+                        Id = (int)reader["ID"],
+                        FirstName = reader["FirstName"] as string,
+                        LastName = reader["LastName"] as string,
+                        MiddleName = reader["MiddleName"] as string,
+                        SubscriptionNumber = (int)reader["SubscriptionNumber"],
+                        IDCoach = reader["IDcoach"] as int?,
+                    });
+                }
+                return Client;
+            }
+        }
+
         public IEnumerable<Client> GetAll()
         {
             List<Client> Client = new List<Client>();
@@ -133,9 +213,6 @@ namespace FitnessCenter.DAL
                 var command = new SqlCommand("Sp_GetClients", connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-
-                //command = connection.CreateCommand();
-                // command.CommandText = "SELECT [ID],[FirstName],[LastName] ,[MiddleName],[SubscriptionNumber],[IDCoach] FROM[FitnessCenter].[dbo].[Client]";
                 connection.Open();
 
 

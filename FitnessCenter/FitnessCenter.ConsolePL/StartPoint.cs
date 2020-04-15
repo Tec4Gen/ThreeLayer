@@ -20,18 +20,22 @@ namespace FitnessCenter.ConsolePL
             //    FirstName = "Иван",
             //    LastName = "Иванов",
             //    MiddleName = "Петрович",
-            //    SubscriptionNumber = 56987,
+            //    SubscriptionNumber = 569871,
             //    //IdCoach = NULL
             //});
-            Client a;
 
-            a = clinetLogic.Delete(11111);
-            Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.SubscriptionNumber}|{a.IDCoach}");
+            //Client a;
+
+            var a = clinetLogic.Delete(1111);
+            //Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.SubscriptionNumber}|{a.IDCoach}");
+
+            //a = clinetLogic.Delete(11111);
+
 
             //var ClientAll = clinetLogic.GetAll();
 
 
-            //foreach (var item in ClientAll)
+            //foreach (var item in a)
             //{
             //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.SubscriptionNumber}|{item.IDCoach}");
             //}
