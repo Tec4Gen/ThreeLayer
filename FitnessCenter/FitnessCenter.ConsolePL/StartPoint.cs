@@ -62,15 +62,51 @@ namespace FitnessCenter.ConsolePL
             //}
             //Console.WriteLine();
 
-            var a = coachLogic.GetByPhone(9172456566);
+           // var a = coachLogic.GetByPhone(9172456566);
 
             //foreach (var item in a)
             //{
             //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
             //}
 
-            Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.Phone}");
+            //Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.Phone}");
             //Console.WriteLine();
+
+            var halllogic = DependenciesResolver.HallLogic;
+
+            //halllogic.Add(new Hall()
+            //{
+            //    NameHall = "Blue"
+            //});
+
+            //halllogic.Add(new Hall()
+            //{
+            //    NameHall = "Red",
+            //    Description = @"Крайней негативный зал"
+            //});
+
+            //halllogic.Add(new Hall()
+            //{
+            //    NameHall = "White",
+            //    Description = @"Белый зал"
+            //});
+
+            //halllogic.Add(new Hall()
+            //{
+            //    NameHall = "Purpure",
+            //    Description = @"kek",
+            //});
+
+            //var list = halllogic.GetAll();
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine($"{item.Id}|{item.NameHall}|{item.Description}|");
+            //    Console.WriteLine();
+            //}
+
+            var item = halllogic.GetByName("213123123");
+
+            Console.WriteLine($"{item.Id}|{item.NameHall}|{item.Description}|");
         }
     }
 }

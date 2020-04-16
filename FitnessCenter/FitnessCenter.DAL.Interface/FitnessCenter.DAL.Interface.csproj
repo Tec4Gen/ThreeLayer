@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IClientDao.cs" />
     <Compile Include="ICoachDao.cs" />
+    <Compile Include="IHallDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

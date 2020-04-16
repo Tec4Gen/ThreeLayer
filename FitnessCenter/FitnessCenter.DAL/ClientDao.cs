@@ -80,6 +80,48 @@ namespace FitnessCenter.DAL
                 return (int)IdParameter.Value;
             }
         }
+        public Client Delete(int subnumber)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                Client RemoveClinet = new Client();
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_DeleteClient";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterSubscriptionNumber = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@SubscriptionNumber",
+                    Value = subnumber,
+                    Direction = ParameterDirection.Input,
+                };
+
+                command.Parameters.Add(ParameterSubscriptionNumber);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    RemoveClinet.Id = (int)reader["ID"];
+                    RemoveClinet.FirstName = reader["FirstName"] as string;
+                    RemoveClinet.LastName = reader["LastName"] as string;
+                    RemoveClinet.MiddleName = reader["MiddleName"] as string;
+                    RemoveClinet.SubscriptionNumber = (int)reader["SubscriptionNumber"];
+                    RemoveClinet.IDCoach = reader["IDcoach"] as int?;
+                }
+                else
+                {
+                    return null;
+                }
+
+                return RemoveClinet;
+            }
+        }
 
         public Client GetById(int id)
         {
@@ -165,7 +207,7 @@ namespace FitnessCenter.DAL
             }
         }
 
-        public IEnumerable<Client> GetByLastName(string lastname) 
+        public IEnumerable<Client> GetByLastName(string lastname)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -233,48 +275,7 @@ namespace FitnessCenter.DAL
             return Client;
         }
 
-        public Client Delete(int subnumber)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                Client RemoveClinet = new Client();
 
-                SqlCommand command = connection.CreateCommand();
-
-                command.CommandText = "dbo.Sp_DeleteClient";
-                command.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParameterSubscriptionNumber = new SqlParameter()
-                {
-                    DbType = DbType.Int32,
-                    ParameterName = "@SubscriptionNumber",
-                    Value = subnumber,
-                    Direction = ParameterDirection.Input,
-                };
-
-                command.Parameters.Add(ParameterSubscriptionNumber);
-
-                connection.Open();
-
-                var reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    RemoveClinet.Id = (int)reader["ID"];
-                    RemoveClinet.FirstName = reader["FirstName"] as string;
-                    RemoveClinet.LastName = reader["LastName"] as string;
-                    RemoveClinet.MiddleName = reader["MiddleName"] as string;
-                    RemoveClinet.SubscriptionNumber = (int)reader["SubscriptionNumber"];
-                    RemoveClinet.IDCoach = reader["IDcoach"] as int?;
-                }
-                else
-                {
-                    return null;
-                }
-
-                return RemoveClinet;
-            }
-        }
 
     }
 }

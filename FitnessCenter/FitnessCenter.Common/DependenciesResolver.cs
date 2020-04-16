@@ -17,6 +17,10 @@ namespace FitnessCenter.Common
         private static ICoachDao _coachDao { get; set; } = new CoachDao();
 
         public static ICoachLogic CoachLogic { get; set; } = new CoachLogic(_coachDao);
+
+        private static IHallDao _hallLogic { get; set; } = new HallDao();
+
+        public static IHallLogic HallLogic { get; set; } = new HallLogic(_hallLogic);
     }
 
 }
