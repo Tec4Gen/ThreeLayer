@@ -4,13 +4,15 @@ using System.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
+using System;
 
 namespace FitnessCenter.DAL
 {
     public class ClientDao : IClientDao
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["FitnessCenter"].ConnectionString;
-        public int Add(Client item)
+        public string Add(Client item)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -50,7 +52,7 @@ namespace FitnessCenter.DAL
                 {
                     DbType = DbType.String,
                     ParameterName = "@MiddleName",
-                    Value = item.LastName,
+                    Value = item.MiddleName,
                     Direction = ParameterDirection.Input
                 };
                 command.Parameters.Add(ParameterMiddleName);
@@ -64,10 +66,11 @@ namespace FitnessCenter.DAL
                 };
                 command.Parameters.Add(ParameterSubscriptionNumber);
 
+
                 SqlParameter ParameterIdCoach = new SqlParameter()
                 {
                     DbType = DbType.Int32,
-                    ParameterName = "@IdCoach",
+                    ParameterName = "@IDCoach",
                     Value = item.IDCoach,
                     Direction = ParameterDirection.Input
                 };
@@ -75,9 +78,27 @@ namespace FitnessCenter.DAL
 
                 connection.Open();
 
-                command.ExecuteNonQuery();
+                var messages = new StringBuilder();
 
-                return (int)IdParameter.Value;
+                connection.InfoMessage += new SqlInfoMessageEventHandler((sender, args) =>
+                {
+                    messages.AppendLine(args.Message);
+                });
+
+                try
+                {
+                    var reader = command.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+
+                    return "Введите ID тренера";
+                }
+               
+             
+               
+
+                return messages.ToString();
             }
         }
         public Client Delete(int subnumber)

@@ -9,8 +9,7 @@ namespace FitnessCenter.ConsolePL
         static void Main(string[] args)
         {
 
-            //var clinetLogic = DependenciesResolver.ClientLogic;
-            var coachLogic = DependenciesResolver.CoachLogic;
+            //var coachLogic = DependenciesResolver.CoachLogic;
 
             //coachLogic.Add(new Coach()
             //{
@@ -18,7 +17,6 @@ namespace FitnessCenter.ConsolePL
             //    LastName = "Иванов",
             //    MiddleName = "Петрович",
             //    Phone = 9172006302,
-            //    //IdCoach = NULL
             //});
 
             //coachLogic.Add(new Coach()
@@ -44,35 +42,120 @@ namespace FitnessCenter.ConsolePL
             //    MiddleName = "Игоревич",
             //    Phone = 9201495878,
             //});
-
-
-
-            // var  a = coachLogic.Delete(9172006302);
-            // Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.Phone}");
-
-            //a = clinetLogic.Delete(11111);
-
-
-            //var ClientAll = clinetLogic.GetAll();
-            //var all = coachLogic.GetAll();
-
-            //foreach (var item in all)
+            //coachLogic.Add(new Coach()
             //{
-            //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
-            //}
-            //Console.WriteLine();
+            //    FirstName = "Егор",
+            //    LastName = "Ионов",
+            //    MiddleName = "Юрьевич",
+            //    Phone = 9256545555,
+            //});
 
-           // var a = coachLogic.GetByPhone(9172456566);
+            //#region AddClient
+            var clinetLogic = DependenciesResolver.ClientLogic;
 
-            //foreach (var item in a)
+            //    clinetLogic.Add(new Client()
+            //    {
+            //        FirstName = "Иван",
+            //        LastName = "Иванов",
+            //        MiddleName = "Петрович",
+            //        SubscriptionNumber = 5478,
+            //        IDCoach = 25,
+            //    });
+
+
+            //    clinetLogic.Add(new Client()
+            //    {
+            //        FirstName = "Игорь",
+            //        LastName = "Долгов",
+            //        MiddleName = "Олегович",
+            //        SubscriptionNumber = 54789,
+            //        IDCoach = 25,
+            //    });
+
+
+            //    clinetLogic.Add(new Client()
+            //    {
+            //        FirstName = "Антон",
+            //        LastName = "Худобин",
+            //        MiddleName = "Игоревич",
+            //        SubscriptionNumber = 1111,
+            //        IDCoach = 24,
+
+            //    });
+
+
+            //    clinetLogic.Add(new Client()
+            //    {
+            //        FirstName = "Илья",
+            //        LastName = "Хабибулин",
+            //        MiddleName = "Петрович",
+            //        SubscriptionNumber = 555,
+            //        IDCoach = 23,
+            //    });
+
+            //clinetLogic.Add(new Client()
             //{
-            //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
-            //}
+            //    FirstName = "Виктор",
+            //    LastName = "Андрейченко",
+            //    MiddleName = "Ильинич",
+            //    SubscriptionNumber = 4789,
+            //    IDCoach = 23,
+            //});
 
-            //Console.WriteLine($"{a.Id}|{a.FirstName}|{a.LastName}|{a.MiddleName}|{a.Phone}");
-            //Console.WriteLine();
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Алексей",
+            //    LastName = "Игнатьев",
+            //    MiddleName = "Алексеевич",
+            //    SubscriptionNumber = 65879,
+            //    IDCoach = 26,
+            //});
 
-            var halllogic = DependenciesResolver.HallLogic;
+
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Анастасия",
+            //    LastName = "Люшина",
+            //    MiddleName = "Игоревна",
+            //    SubscriptionNumber = 14789,
+            //    IDCoach = 27,
+            //});
+
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Игорь",
+            //    LastName = "Илюшкин",
+            //    MiddleName = "Андреевич",
+            //    SubscriptionNumber = 5433,
+            //    IDCoach = 23,
+            //});
+
+
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Антон",
+            //    LastName = "Вилюшин",
+            //    MiddleName = "Юрьевич",
+            //    SubscriptionNumber = 7894,
+            //    IDCoach = 25,
+            //});
+
+
+            var a = clinetLogic.Add(new Client()
+            {
+                FirstName = "ро",
+                LastName = "Мартыненко",
+                MiddleName = "Asdasdasd",
+  
+            }) ;
+
+
+            Console.WriteLine(a);
+            ////#endregion
+
+
+
+            //var halllogic = DependenciesResolver.HallLogic;
 
             //halllogic.Add(new Hall()
             //{
@@ -97,16 +180,28 @@ namespace FitnessCenter.ConsolePL
             //    Description = @"kek",
             //});
 
-            //var list = halllogic.GetAll();
-            //foreach (var item in list)
+            //halllogic.Add(new Hall()
             //{
-            //    Console.WriteLine($"{item.Id}|{item.NameHall}|{item.Description}|");
-            //    Console.WriteLine();
-            //}
+            //    NameHall = "Green",
+            //    Description = @"kekes",
+            //});
 
-            var item = halllogic.GetByName("213123123");
 
-            Console.WriteLine($"{item.Id}|{item.NameHall}|{item.Description}|");
+
+            //var item = halllogic.GetByName("213123123");
+
+            //Console.WriteLine($"{item.Id}|{item.NameHall}|{item.Description}|");
+
+            var Lessonsogic = DependenciesResolver.LessonsLogic;
+
+            //var a = Lessonsogic.Add(new Lessons() 
+            //{
+            //    IdClinet = 16,
+            //    IdHall = 15,
+            //    Time = new DateTime(2020, 5, 14, 2, 35,0),
+            //});
+
+            //Console.WriteLine(a);
         }
     }
 }

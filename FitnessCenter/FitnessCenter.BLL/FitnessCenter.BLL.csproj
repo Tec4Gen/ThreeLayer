@@ -44,6 +44,7 @@
     <Compile Include="ClientLogic.cs" />
     <Compile Include="CoachLogic.cs" />
     <Compile Include="HallLogic.cs" />
+    <Compile Include="LessonsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

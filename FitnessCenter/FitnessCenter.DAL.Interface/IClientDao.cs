@@ -5,7 +5,7 @@ namespace FitnessCenter.DAL.Interface
 {
     public interface IClientDao
     {
-        int Add(Client item);
+        string Add(Client item);
 
         Client Delete(int subnumber);
 

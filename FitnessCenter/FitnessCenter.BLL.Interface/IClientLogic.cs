@@ -5,7 +5,7 @@ namespace FitnessCenter.BLL.Interface
 {
     public interface IClientLogic
     {
-        int Add(Client item);
+        string Add(Client item);
 
         Client Delete(int subnumber);
 

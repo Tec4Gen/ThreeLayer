@@ -45,9 +45,14 @@
     <Compile Include="ClientDao.cs" />
     <Compile Include="CoachDao.cs" />
     <Compile Include="HallDao.cs" />
+    <Compile Include="LessonsDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FitnessCenter.BLL.Interface\FitnessCenter.BLL.Interface.csproj">
+      <Project>{5179E574-5FDE-4742-8D59-FFF8754FC605}</Project>
+      <Name>FitnessCenter.BLL.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FitnessCenter.DAL.Interface\FitnessCenter.DAL.Interface.csproj">
       <Project>{5D6FF352-F642-4EBB-BBF0-815735046FF5}</Project>
       <Name>FitnessCenter.DAL.Interface</Name>

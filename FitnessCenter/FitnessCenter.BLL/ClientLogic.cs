@@ -13,7 +13,7 @@ namespace FitnessCenter
             _clientdao = clinetdao;
         }
 
-        public int Add(Client item)
+        public string Add(Client item)
         {
             return _clientdao.Add(item);
         }

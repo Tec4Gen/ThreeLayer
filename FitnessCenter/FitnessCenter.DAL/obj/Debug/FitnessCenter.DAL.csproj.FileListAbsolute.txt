@@ -20,3 +20,5 @@ C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\Fitnes
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.csproj.CopyComplete
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.dll
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\obj\Debug\FitnessCenter.DAL.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.BLL.Interface.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.DAL\bin\Debug\FitnessCenter.BLL.Interface.pdb
