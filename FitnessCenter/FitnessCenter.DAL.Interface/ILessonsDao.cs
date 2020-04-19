@@ -9,6 +9,18 @@ namespace FitnessCenter.DAL.Interface
 {
     public interface ILessonsDao
     {
-        string Add(Lessons item);
+        string Add(Lesson item);
+
+        Lesson Delete(int id);
+
+        IEnumerable<Lesson> GetById(int id);
+
+        IEnumerable<Lesson> GetAll();
+
+        IEnumerable<Lesson> GetAllLessonByNameHall(int idhall);
+
+        IEnumerable<Lesson> GetAllLessonBySubNumClient(int idclient);
+
+        IEnumerable<Lesson> GetAllLessonByIdPhoneCoach(int idclient);
     }
 }

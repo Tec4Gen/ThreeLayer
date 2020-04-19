@@ -17,7 +17,7 @@ namespace FitnessCenter
             _lessonsDao = lessonsDao;
         }
 
-        public string Add(Lessons item)
+        public string Add(Lesson item)
         {
             return _lessonsDao.Add(item);
         }

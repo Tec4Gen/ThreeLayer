@@ -9,6 +9,6 @@ namespace FitnessCenter.BLL.Interface
 {
     public interface ILessonsLogic
     {
-        string Add(Lessons item);
+        string Add(Lesson item);
     }
 }

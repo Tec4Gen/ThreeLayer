@@ -10,6 +10,6 @@ namespace FitnessCenter.Entities
     {
         public int Id { get; set; }
         public string NameHall { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; } = "";
     }
 }

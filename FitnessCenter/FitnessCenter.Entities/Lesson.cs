@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace FitnessCenter.Entities
 {
-    public class Lessons
+    public class Lesson
     {
+        public int Id { get; set; }
+
         public int IdClinet { get; set; }
 
         public int IdHall { get; set; }

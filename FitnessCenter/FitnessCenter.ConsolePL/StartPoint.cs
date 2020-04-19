@@ -9,15 +9,15 @@ namespace FitnessCenter.ConsolePL
         static void Main(string[] args)
         {
 
-            var coachLogic = DependenciesResolver.CoachLogic;
+            //var coachLogic = DependenciesResolver.CoachLogic;
 
-            var b = coachLogic.Add(new Coach()
-            {
-                FirstName = "Алексей",
-                MiddleName = "Тарасов",
-                LastName = "Викторович",
-                Phone = 545555555222,
-            });
+            //var b = coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Алексей",
+            //    MiddleName = "Тарасов",
+            //    LastName = "Викторович",
+            //    Phone = 5455222,
+            //});
 
             //coachLogic.Add(new Coach()
             //{
@@ -51,15 +51,15 @@ namespace FitnessCenter.ConsolePL
             //});
 
             //#region AddClient
-           // var clinetLogic = DependenciesResolver.ClientLogic;
+            // var clinetLogic = DependenciesResolver.ClientLogic;
 
-           //var a = clinetLogic.Add(new Client()
-           // {
-           //     FirstName = "Андрей",
-           //     LastName = "Иванов",
-           //     MiddleName = "Иванович",
-           //     IDCoach = 1,
-           // });
+            //var a = clinetLogic.Add(new Client()
+            // {
+            //     FirstName = "Андрей",
+            //     LastName = "Иванов",
+            //     MiddleName = "Иванович",
+            //     IDCoach = 1,
+            // });
 
 
             //    clinetLogic.Add(new Client()
@@ -150,10 +150,10 @@ namespace FitnessCenter.ConsolePL
 
             var halllogic = DependenciesResolver.HallLogic;
 
-            //halllogic.Add(new Hall()
-            //{
-            //    NameHall = "Blue"
-            //});
+            var c = halllogic.Add(new Hall()
+            {
+                NameHall = "ТBlue"
+            });
 
             //halllogic.Add(new Hall()
             //{
@@ -177,8 +177,8 @@ namespace FitnessCenter.ConsolePL
             //{
             //    NameHall = "Фreen",
             //});
-            Console.WriteLine(b);
-            Console.WriteLine();
+            //Console.WriteLine(b);
+            Console.WriteLine(c);
             //Console.WriteLine(a);
 
             //var item = halllogic.GetByName("213123123");

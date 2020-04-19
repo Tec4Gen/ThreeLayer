@@ -44,7 +44,7 @@ namespace FitnessCenter.DAL
                 SqlParameter ParameterDescription = new SqlParameter() 
                 {
                     DbType = DbType.String,
-                    ParameterName = "@Description",
+                    ParameterName = "@Description",      
                     Value = item.Description,
                     Direction = ParameterDirection.Input,
                 };
