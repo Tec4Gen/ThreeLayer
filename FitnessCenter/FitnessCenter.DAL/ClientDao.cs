@@ -20,24 +20,14 @@ namespace FitnessCenter.DAL
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = "dbo.Sp_InsertClient";
 
-                SqlParameter IdParameter = new SqlParameter()
-                {
-                    DbType = DbType.Int32,
-                    ParameterName = "@Id",
-                    Value = item.Id,
-                    Direction = ParameterDirection.Output
-
-                };
-                command.Parameters.Add(IdParameter);
-
-                SqlParameter ParameterFirtName = new SqlParameter()
+                SqlParameter ParameterFirstName = new SqlParameter()
                 {
                     DbType = DbType.String,
                     ParameterName = "@FirstName",
                     Value = item.FirstName,
                     Direction = ParameterDirection.Input
                 };
-                command.Parameters.Add(ParameterFirtName);
+                command.Parameters.Add(ParameterFirstName);
 
                 SqlParameter ParameterLastName = new SqlParameter()
                 {
@@ -85,18 +75,8 @@ namespace FitnessCenter.DAL
                     messages.AppendLine(args.Message);
                 });
 
-                try
-                {
-                    var reader = command.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
 
-                    return "Введите ID тренера";
-                }
-               
-             
-               
+                var reader = command.ExecuteNonQuery();
 
                 return messages.ToString();
             }

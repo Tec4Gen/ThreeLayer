@@ -9,15 +9,15 @@ namespace FitnessCenter.ConsolePL
         static void Main(string[] args)
         {
 
-            //var coachLogic = DependenciesResolver.CoachLogic;
+            var coachLogic = DependenciesResolver.CoachLogic;
 
-            //coachLogic.Add(new Coach()
-            //{
-            //    FirstName = "Иван",
-            //    LastName = "Иванов",
-            //    MiddleName = "Петрович",
-            //    Phone = 9172006302,
-            //});
+            var b = coachLogic.Add(new Coach()
+            {
+                FirstName = "Алексей",
+                MiddleName = "Тарасов",
+                LastName = "Викторович",
+                Phone = 545555555222,
+            });
 
             //coachLogic.Add(new Coach()
             //{
@@ -51,16 +51,15 @@ namespace FitnessCenter.ConsolePL
             //});
 
             //#region AddClient
-            var clinetLogic = DependenciesResolver.ClientLogic;
+           // var clinetLogic = DependenciesResolver.ClientLogic;
 
-            //    clinetLogic.Add(new Client()
-            //    {
-            //        FirstName = "Иван",
-            //        LastName = "Иванов",
-            //        MiddleName = "Петрович",
-            //        SubscriptionNumber = 5478,
-            //        IDCoach = 25,
-            //    });
+           //var a = clinetLogic.Add(new Client()
+           // {
+           //     FirstName = "Андрей",
+           //     LastName = "Иванов",
+           //     MiddleName = "Иванович",
+           //     IDCoach = 1,
+           // });
 
 
             //    clinetLogic.Add(new Client()
@@ -141,21 +140,15 @@ namespace FitnessCenter.ConsolePL
             //});
 
 
-            var a = clinetLogic.Add(new Client()
-            {
-                FirstName = "ро",
-                LastName = "Мартыненко",
-                MiddleName = "Asdasdasd",
-  
-            }) ;
 
 
-            Console.WriteLine(a);
+
+
             ////#endregion
 
 
 
-            //var halllogic = DependenciesResolver.HallLogic;
+            var halllogic = DependenciesResolver.HallLogic;
 
             //halllogic.Add(new Hall()
             //{
@@ -180,13 +173,13 @@ namespace FitnessCenter.ConsolePL
             //    Description = @"kek",
             //});
 
-            //halllogic.Add(new Hall()
+            //var a = halllogic.Add(new Hall()
             //{
-            //    NameHall = "Green",
-            //    Description = @"kekes",
+            //    NameHall = "Фreen",
             //});
-
-
+            Console.WriteLine(b);
+            Console.WriteLine();
+            //Console.WriteLine(a);
 
             //var item = halllogic.GetByName("213123123");
 
@@ -202,6 +195,7 @@ namespace FitnessCenter.ConsolePL
             //});
 
             //Console.WriteLine(a);
+            Console.ReadLine();
         }
     }
 }

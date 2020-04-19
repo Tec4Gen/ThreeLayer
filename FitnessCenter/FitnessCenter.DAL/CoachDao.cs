@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace FitnessCenter.DAL
 {
     public class CoachDao : ICoachDao
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["FitnessCenter"].ConnectionString;
-        public int Add(Coach item)
+        public string Add(Coach item)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -20,15 +21,6 @@ namespace FitnessCenter.DAL
 
                 command.CommandText = "dbo.Sp_InsertCoach";
                 command.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParameterId = new SqlParameter()
-                {
-                    DbType = DbType.Int32,
-                    ParameterName = "@Id",
-                    Value = item.Id,
-                    Direction = ParameterDirection.Output,
-                };
-                command.Parameters.Add(ParameterId);
 
                 SqlParameter ParameterFirstName = new SqlParameter()
                 {
@@ -68,9 +60,17 @@ namespace FitnessCenter.DAL
 
                 connection.Open();
 
-                command.ExecuteNonQuery();
+                var messages = new StringBuilder();
 
-                return (int)ParameterId.Value;
+                connection.InfoMessage += new SqlInfoMessageEventHandler((sender, args) =>
+                {
+                    messages.AppendLine(args.Message);
+                });
+
+
+                var reader = command.ExecuteNonQuery();
+                
+                return messages.ToString();
             }
         }
 

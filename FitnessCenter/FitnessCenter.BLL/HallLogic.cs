@@ -16,7 +16,7 @@ namespace FitnessCenter
             _halldao = halldao;
         }
 
-        public int Add(Hall item)
+        public string Add(Hall item)
         {
             return _halldao.Add(item);
         }

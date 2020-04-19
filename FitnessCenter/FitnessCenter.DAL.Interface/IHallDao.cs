@@ -9,7 +9,7 @@ namespace FitnessCenter.DAL.Interface
 {
     public interface IHallDao
     {
-        int Add(Hall item);
+        string Add(Hall item);
 
         Hall Delete(string namehall);
 

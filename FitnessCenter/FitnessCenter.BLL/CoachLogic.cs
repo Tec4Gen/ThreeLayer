@@ -14,7 +14,7 @@ namespace FitnessCenter
         {
             _coachDao = coachdao;
         }
-        public int Add(Coach item)
+        public string Add(Coach item)
         {
             return _coachDao.Add(item);
         }

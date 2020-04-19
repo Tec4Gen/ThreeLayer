@@ -9,7 +9,7 @@ namespace FitnessCenter.BLL.Interface
 {
     public interface IHallLogic
     {
-        int Add(Hall item);
+        string Add(Hall item);
 
         Hall Delete(string namehall);
 

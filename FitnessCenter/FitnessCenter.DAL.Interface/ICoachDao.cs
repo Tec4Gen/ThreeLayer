@@ -6,7 +6,7 @@ namespace FitnessCenter.DAL.Interface
 {
     public interface ICoachDao
     {
-        int Add(Coach item);
+        string Add(Coach item);
 
         Coach Delete(long phone);
 

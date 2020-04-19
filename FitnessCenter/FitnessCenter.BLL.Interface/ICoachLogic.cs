@@ -6,7 +6,7 @@ namespace FitnessCenter.BLL.Interface
 {
     public interface ICoachLogic
     {
-        int Add(Coach item);
+        string Add(Coach item);
 
         Coach Delete(long phone);
 

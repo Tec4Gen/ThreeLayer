@@ -14,7 +14,7 @@ namespace FitnessCenter.DAL
     public class HallDao : IHallDao
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["FitnessCenter"].ConnectionString;
-        public int Add(Hall item)
+        public string Add(Hall item)
         {
             using (SqlConnection connection =  new SqlConnection(_connectionString))
             {
@@ -52,9 +52,17 @@ namespace FitnessCenter.DAL
 
                 connection.Open();
 
-                command.ExecuteNonQuery();
+                var messages = new StringBuilder();
 
-                return (int)ParameterId.Value;
+                connection.InfoMessage += new SqlInfoMessageEventHandler((sender, args) =>
+                {
+                    messages.AppendLine(args.Message);
+                });
+
+
+                var reader = command.ExecuteNonQuery();
+
+                return messages.ToString();
 
             }
         }
