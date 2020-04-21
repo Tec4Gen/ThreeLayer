@@ -9,58 +9,64 @@ namespace FitnessCenter.ConsolePL
         static void Main(string[] args)
         {
 
-            //var coachLogic = DependenciesResolver.CoachLogic;
+            var coachLogic = DependenciesResolver.CoachLogic;
 
             //var b = coachLogic.Add(new Coach()
             //{
             //    FirstName = "Алексей",
             //    MiddleName = "Тарасов",
             //    LastName = "Викторович",
-            //    Phone = 5455222,
             //});
+            //Console.WriteLine(b);
+           coachLogic.Add(new Coach()
+            {
+                FirstName = "Андрей",
+                LastName = "Попов",
+                MiddleName = "Юрьевич",
+                Phone = 9256987741,
+            });
+            Console.WriteLine();
+            coachLogic.Add(new Coach()
+            {
+                FirstName = "Алексей",
+                LastName = "Ионов",
+                MiddleName = "Серьгеевич",
+                Phone = 9172456566,
+            });
 
-            //coachLogic.Add(new Coach()
-            //{
-            //    FirstName = "Андрей",
-            //    LastName = "Попов",
-            //    MiddleName = "Юрьевич",
-            //    Phone = 9256987741,
-            //});
+            coachLogic.Add(new Coach()
+            {
+                FirstName = "Олег",
+                LastName = "Игнатьев",
+                MiddleName = "Игоревич",
+                Phone = 9201495878,
+            });
+            coachLogic.Add(new Coach()
+            {
+                FirstName = "Егор",
+                LastName = "Ионов",
+                MiddleName = "Юрьевич",
+                Phone = 9256545555,
+            });
 
-            //coachLogic.Add(new Coach()
-            //{
-            //    FirstName = "Алексей",
-            //    LastName = "Ионов",
-            //    MiddleName = "Серьгеевич",
-            //    Phone = 9172456566,
-            //});
 
-            //coachLogic.Add(new Coach()
-            //{
-            //    FirstName = "Олег",
-            //    LastName = "Игнатьев",
-            //    MiddleName = "Игоревич",
-            //    Phone = 9201495878,
-            //});
-            //coachLogic.Add(new Coach()
-            //{
-            //    FirstName = "Егор",
-            //    LastName = "Ионов",
-            //    MiddleName = "Юрьевич",
-            //    Phone = 9256545555,
-            //});
+            var c = coachLogic.GetAll();
 
+            foreach (var item in c)
+            {
+                Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
+            }
             //#region AddClient
-            // var clinetLogic = DependenciesResolver.ClientLogic;
+            //var clinetLogic = DependenciesResolver.ClientLogic;
 
             //var a = clinetLogic.Add(new Client()
-            // {
-            //     FirstName = "Андрей",
-            //     LastName = "Иванов",
-            //     MiddleName = "Иванович",
-            //     IDCoach = 1,
-            // });
-
+            //{
+            //    FirstName = "Андрей",
+            //    LastName = "Иванов",
+            //    MiddleName = "Иванович",
+            //    IDCoach = 3,
+            //});
+            //Console.WriteLine(a);
 
             //    clinetLogic.Add(new Client()
             //    {
@@ -148,12 +154,12 @@ namespace FitnessCenter.ConsolePL
 
 
 
-            var halllogic = DependenciesResolver.HallLogic;
+            //var halllogic = DependenciesResolver.HallLogic;
 
-            var c = halllogic.Add(new Hall()
-            {
-                NameHall = "ТBlue"
-            });
+            //var c = halllogic.Add(new Hall()
+            //{
+            //    NameHall = "ТBlue"
+            //});
 
             //halllogic.Add(new Hall()
             //{
@@ -178,7 +184,7 @@ namespace FitnessCenter.ConsolePL
             //    NameHall = "Фreen",
             //});
             //Console.WriteLine(b);
-            Console.WriteLine(c);
+            // Console.WriteLine(c);
             //Console.WriteLine(a);
 
             //var item = halllogic.GetByName("213123123");
