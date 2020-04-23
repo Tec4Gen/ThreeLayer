@@ -226,6 +226,7 @@ namespace FitnessCenter.DAL
                     Direction = ParameterDirection.Input,
                 };
                 command.Parameters.Add(ParameterLastName);
+
                 connection.Open();
 
                 var reader = command.ExecuteReader();

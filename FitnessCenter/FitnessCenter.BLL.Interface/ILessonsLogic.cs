@@ -10,5 +10,18 @@ namespace FitnessCenter.BLL.Interface
     public interface ILessonsLogic
     {
         string Add(Lesson item);
+
+        Lesson Delete(int id);
+
+        IEnumerable<Lesson> GetById(int id);
+
+        IEnumerable<Lesson> GetAll();
+
+        IEnumerable<Lesson> GetAllLessonByNameHall(string namehall);
+
+        IEnumerable<Lesson> GetAllLessonBySubNumClient(int idclient);
+
+        IEnumerable<Lesson> GetAllLessonByPhoneCoach(long phone);
     }
 }
+

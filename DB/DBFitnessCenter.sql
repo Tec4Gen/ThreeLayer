@@ -98,7 +98,6 @@ BEGIN
 	INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 	VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
 END
-
 GO
 
 CREATE PROCEDURE [dbo].[Sp_GetBySubNumberClient]
@@ -290,9 +289,21 @@ CREATE PROCEDURE [dbo].[Sp_InsertLessons]
 	@Time DATETIME
 AS
 BEGIN
+	IF NOT EXISTS (SELECT * FROM Client WHERE @IdClient=ID)
+	BEGIN
+		PRINT 'Такого клиента нет'
+		RETURN
+	END
+	IF NOT EXISTS (SELECT * FROM Hall WHERE @IDHall=ID)
+	BEGIN
+		PRINT 'Такого зала нет'
+		RETURN
+	END
     INSERT INTO Lessons(IDClient,IDHall,ClassTime)
     VALUES (@IdClient,@IDHall,@Time)
 END
+
+
 GO
 
 CREATE PROCEDURE [dbo].[Sp_DeleteLesson]
@@ -363,21 +374,20 @@ IF EXISTS (SELECT * FROM Lessons WHERE @IDHall = IDHall)
 	END
 GO
 
---CREATE PROCEDURE [dbo].[Sp_GetAllLessonsByPhoneCoach]
---	@NameHall INT
---AS
---DECLARE @IDHall INT
+CREATE PROCEDURE [dbo].[Sp_GetAllLessonsByPhoneCoach]
+	@Phone BIGINT
+AS
+DECLARE @IDCoach INT
 
---SET @IDCoach= (
---				SELECT ID 
---				FROM Hall
---				WHERE (@NameHall = NameHall)
---				)
+SET @IDCoach= (SELECT ID 
+			  FROM Coach
+			  WHERE (@Phone = Phone))
 
---IF EXISTS (SELECT * FROM Lessons WHERE @IDCoach = IDHall)
---	BEGIN
---		SELECT	IDLessons, IDClient, IDHall, ClassTime
---		FROM Lessons
---		WHERE @IDCoach = IDCo;
---	END
---GO
+IF (@IDCoach IS NOT NULL)
+	BEGIN
+			SELECT IDLessons,IDClient, IDHall,ClassTime,IDCoach
+			FROM (Lessons o JOIN Client c
+			ON o.IDClient = c.ID)
+			WHERE(IDCoach = @IDCoach)
+	END
+GO

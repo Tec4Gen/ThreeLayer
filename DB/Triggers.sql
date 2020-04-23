@@ -176,8 +176,8 @@ GO
 
 ---------------------TriggerByLessons--------------------------------
 CREATE TRIGGER CheckInsertedLessons
-   ON  Lessons
-   AFTER INSERT
+  ON  [dbo].[Lessons]
+  INSTEAD OF INSERT
 AS 
 BEGIN
 DECLARE @Count INT
@@ -185,16 +185,25 @@ DECLARE @InsTime DATETIME2
 DECLARE @IdClient NVARCHAR (50)
 DECLARE @InsIDCoach NVARCHAR(50)
 DECLARE @InsIDHall NVARCHAR(50)
-
 SET @InsTime = (SELECT ClassTime FROM inserted);
-
-SET @InsIDCoach = (SELECT a.IDCoach 
+IF EXISTS  (SELECT *
+			FROM (inserted o JOIN Client c
+			ON o.IDClient = c.ID)
+			WHERE(IDCoach = c.IDCoach) AND c.IDCoach IS NOT NULL)
+BEGIN
+	SET @InsIDCoach = (SELECT a.IDCoach 
 		FROM (
 			SELECT *
 			FROM (inserted o JOIN Client c
 			ON o.IDClient = c.ID)
 			WHERE(IDCoach = c.IDCoach)) a
 		)
+END
+ELSE 
+BEGIN
+	SELECT 'У клиента нет тренера' AS CallBackMessage
+	RETURN
+END
 
 SET @InsTime = (SELECT ClassTime FROM inserted);
 SET @IdClient = (SELECT IDClient FROM inserted);
@@ -204,7 +213,6 @@ SET @InsIDHall = (SELECT IDHall FROM inserted);
 --PRINT @InsTime
 --PRINT @InsIDCoach
 --PRINT @IdClient
-
 IF 
 (
 	(SELECT COUNT(*)
@@ -213,11 +221,11 @@ IF
 			FROM Lessons o JOIN Client c
 			ON o.IDClient = c.ID
 			WHERE(IDCoach = @InsIDCoach)) a
-	 WHERE (ABS(DATEDIFF(MINUTE,a.ClassTime,@InsTime)) < 60)) > 1
+	 WHERE (ABS(DATEDIFF(MINUTE,a.ClassTime,@InsTime)) < 60)) > 0
 )
 BEGIN
-	--PRINT 'Тренер занят'
-	ROLLBACK TRAN
+	PRINT 'Тренер занят'
+	RETURN
 END
 ELSE
 	BEGIN
@@ -230,11 +238,11 @@ ELSE
 						WHERE (IDHall = @InsIDHall)
 				) AllHall
 
-				WHERE (ABS(DATEDIFF(MINUTE,AllHall.ClassTime,@InsTime)) < 60)) > 1
+				WHERE (ABS(DATEDIFF(MINUTE,AllHall.ClassTime,@InsTime)) < 60)) > 0
 			)
-		BEGIN 
-		--PRINT 'Зал занят'
-			ROLLBACK TRAN
+		BEGIN	
+			PRINT 'Зал занят'
+			RETURN
 		END
 		ELSE
 		BEGIN 
@@ -247,17 +255,18 @@ ELSE
 							WHERE (IDClient = @IdClient)
 					) AllClient
 
-					WHERE (ABS(DATEDIFF(MINUTE,AllClient.ClassTime,@InsTime)) < 60)) > 1
+					WHERE (ABS(DATEDIFF(MINUTE,AllClient.ClassTime,@InsTime)) < 60)) > 0
 			)
 			BEGIN 
-				--PRINT 'Клиент занят'
-				ROLLBACK TRAN
+				PRINT 'Клиент занят'
+				RETURN
 			END
 			--Все хорошо добавляем
 			ELSE 
 			BEGIN
 				PRINT 'Занятие добавлено'
-				--PRINT 'Клиент свободен'
+				    INSERT INTO Lessons(IDClient,IDHall,ClassTime)
+					VALUES (@IdClient,@InsIDHall,@InsTime)
 			END
 		END
 	END

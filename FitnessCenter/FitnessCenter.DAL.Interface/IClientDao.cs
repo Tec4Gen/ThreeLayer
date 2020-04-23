@@ -17,9 +17,6 @@ namespace FitnessCenter.DAL.Interface
 
         IEnumerable<Client> GetAll();
 
-        
-
-
     }
 }
  

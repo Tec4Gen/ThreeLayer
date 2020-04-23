@@ -18,46 +18,46 @@ namespace FitnessCenter.ConsolePL
             //    LastName = "Викторович",
             //});
             //Console.WriteLine(b);
-           coachLogic.Add(new Coach()
-            {
-                FirstName = "Андрей",
-                LastName = "Попов",
-                MiddleName = "Юрьевич",
-                Phone = 9256987741,
-            });
-            Console.WriteLine();
-            coachLogic.Add(new Coach()
-            {
-                FirstName = "Алексей",
-                LastName = "Ионов",
-                MiddleName = "Серьгеевич",
-                Phone = 9172456566,
-            });
+            //coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Андрей",
+            //    LastName = "Попов",
+            //    MiddleName = "Юрьевич",
+            //    Phone = 9256987741,
+            //});
+            //Console.WriteLine();
+            //coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Алексей",
+            //    LastName = "Ионов",
+            //    MiddleName = "Серьгеевич",
+            //    Phone = 9172456566,
+            //});
 
-            coachLogic.Add(new Coach()
-            {
-                FirstName = "Олег",
-                LastName = "Игнатьев",
-                MiddleName = "Игоревич",
-                Phone = 9201495878,
-            });
-            coachLogic.Add(new Coach()
-            {
-                FirstName = "Егор",
-                LastName = "Ионов",
-                MiddleName = "Юрьевич",
-                Phone = 9256545555,
-            });
+            //coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Олег",
+            //    LastName = "Игнатьев",
+            //    MiddleName = "Игоревич",
+            //    Phone = 9201495878,
+            //});
+            //coachLogic.Add(new Coach()
+            //{
+            //    FirstName = "Егор",
+            //    LastName = "Ионов",
+            //    MiddleName = "Юрьевич",
+            //    Phone = 9256545555,
+            //});
 
 
-            var c = coachLogic.GetAll();
+            // var c = coachLogic.GetAll();
 
-            foreach (var item in c)
-            {
-                Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
-            }
+            // foreach (var item in c)
+            // {
+            //     Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
+            // }
             //#region AddClient
-            //var clinetLogic = DependenciesResolver.ClientLogic;
+            var clinetLogic = DependenciesResolver.ClientLogic;
 
             //var a = clinetLogic.Add(new Client()
             //{
@@ -68,42 +68,41 @@ namespace FitnessCenter.ConsolePL
             //});
             //Console.WriteLine(a);
 
-            //    clinetLogic.Add(new Client()
-            //    {
-            //        FirstName = "Игорь",
-            //        LastName = "Долгов",
-            //        MiddleName = "Олегович",
-            //        SubscriptionNumber = 54789,
-            //        IDCoach = 25,
-            //    });
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Игорь",
+            //    LastName = "Долгов",
+            //    MiddleName = "Олегович",
+            //    IDCoach = 25,
+            //});
 
 
-            //    clinetLogic.Add(new Client()
-            //    {
-            //        FirstName = "Антон",
-            //        LastName = "Худобин",
-            //        MiddleName = "Игоревич",
-            //        SubscriptionNumber = 1111,
-            //        IDCoach = 24,
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Антон",
+            //    LastName = "Худобин",
+            //    MiddleName = "Игоревич",
 
-            //    });
+            //    IDCoach = 24,
+
+            //});
 
 
-            //    clinetLogic.Add(new Client()
-            //    {
-            //        FirstName = "Илья",
-            //        LastName = "Хабибулин",
-            //        MiddleName = "Петрович",
-            //        SubscriptionNumber = 555,
-            //        IDCoach = 23,
-            //    });
+            //clinetLogic.Add(new Client()
+            //{
+            //    FirstName = "Илья",
+            //    LastName = "Хабибулин",
+            //    MiddleName = "Петрович",
+
+            //    IDCoach = 23,
+            //});
 
             //clinetLogic.Add(new Client()
             //{
             //    FirstName = "Виктор",
             //    LastName = "Андрейченко",
             //    MiddleName = "Ильинич",
-            //    SubscriptionNumber = 4789,
+
             //    IDCoach = 23,
             //});
 
@@ -112,7 +111,7 @@ namespace FitnessCenter.ConsolePL
             //    FirstName = "Алексей",
             //    LastName = "Игнатьев",
             //    MiddleName = "Алексеевич",
-            //    SubscriptionNumber = 65879,
+
             //    IDCoach = 26,
             //});
 
@@ -122,7 +121,6 @@ namespace FitnessCenter.ConsolePL
             //    FirstName = "Анастасия",
             //    LastName = "Люшина",
             //    MiddleName = "Игоревна",
-            //    SubscriptionNumber = 14789,
             //    IDCoach = 27,
             //});
 
@@ -131,7 +129,6 @@ namespace FitnessCenter.ConsolePL
             //    FirstName = "Игорь",
             //    LastName = "Илюшкин",
             //    MiddleName = "Андреевич",
-            //    SubscriptionNumber = 5433,
             //    IDCoach = 23,
             //});
 
@@ -141,7 +138,6 @@ namespace FitnessCenter.ConsolePL
             //    FirstName = "Антон",
             //    LastName = "Вилюшин",
             //    MiddleName = "Юрьевич",
-            //    SubscriptionNumber = 7894,
             //    IDCoach = 25,
             //});
 
@@ -183,8 +179,8 @@ namespace FitnessCenter.ConsolePL
             //{
             //    NameHall = "Фreen",
             //});
-            //Console.WriteLine(b);
-            // Console.WriteLine(c);
+            //// Console.WriteLine(b);
+            //Console.WriteLine(c);
             //Console.WriteLine(a);
 
             //var item = halllogic.GetByName("213123123");
@@ -193,14 +189,49 @@ namespace FitnessCenter.ConsolePL
 
             var Lessonsogic = DependenciesResolver.LessonsLogic;
 
-            //var a = Lessonsogic.Add(new Lessons() 
+            var Less = Lessonsogic.Add(new Lesson()
+            {
+                IdClinet = 8,
+                IdHall = 2,
+                Time = new DateTime(2020, 4, 22, 2, 35, 0),
+            });
+            Console.WriteLine(Less);
+            ////////////////////////////////////////////
+            //var less = Lessonsogic.Add(new Lesson()
+            //{
+            //    IdClinet = 100,
+            //    IdHall = 2,
+            //    Time = new DateTime(2020, 4, 20, 1, 35, 0),
+            //});
+            //Console.WriteLine(less);
+            //Less = Lessonsogic.Add(new Lesson()
             //{
             //    IdClinet = 16,
             //    IdHall = 15,
-            //    Time = new DateTime(2020, 5, 14, 2, 35,0),
+            //    Time = new DateTime(2020, 5, 14, 2, 35, 0),
             //});
 
-            //Console.WriteLine(a);
+            //Less = Lessonsogic.Add(new Lesson()
+            //{
+            //    IdClinet = 16,
+            //    IdHall = 15,
+            //    Time = new DateTime(2020, 5, 14, 2, 35, 0),
+            //});
+
+            //Less = Lessonsogic.Add(new Lesson()
+            //{
+            //    IdClinet = 16,
+            //    IdHall = 15,
+            //    Time = new DateTime(2020, 5, 14, 2, 35, 0),
+            //});
+
+            //var les = Lessonsogic.GetAllLessonByNameHall("Red");
+
+
+            //foreach (var item in les)
+            //{
+            //    Console.WriteLine($"{item.Id}|{item.IdClinet}|{item.IdHall}|{item.Time}");
+            //}
             Console.ReadLine();
         }
     }

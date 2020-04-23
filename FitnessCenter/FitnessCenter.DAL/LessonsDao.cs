@@ -52,7 +52,6 @@ namespace FitnessCenter.DAL
 
                 connection.Open();
 
-
                 var messages = new StringBuilder();
 
                 connection.InfoMessage += new SqlInfoMessageEventHandler((sender, args) =>
@@ -60,26 +59,12 @@ namespace FitnessCenter.DAL
                     messages.AppendLine(args.Message);
                 });
 
-                try
-                {
-                    var reader = command.ExecuteNonQuery();
-                }
-                catch (SqlException)
-                {
 
-                    return messages.ToString();
-                }
-
-
-
-                Console.WriteLine();
+                var reader = command.ExecuteNonQuery();
 
                 return messages.ToString();
-
-
             }
         }
-
         public Lesson Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -147,10 +132,41 @@ namespace FitnessCenter.DAL
             }
         }
         //if(reader.Read())
-        public IEnumerable<Lesson> GetAllLessonByIdPhoneCoach(int idclient)
+        public IEnumerable<Lesson> GetAllLessonByPhoneCoach(long phone)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Lesson> lessons = new List<Lesson>();
 
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = "dbo.Sp_GetAllLessonsByPhoneCoach";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterPhone = new SqlParameter() 
+                {
+                    DbType = DbType.Int64,
+                    ParameterName = "@Phone",
+                    Value = phone,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterPhone);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lessons.Add(new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"],
+                    });
+                }
+                return lessons;
+            }
         }
 
         //if(reader.Read())
@@ -192,19 +208,19 @@ namespace FitnessCenter.DAL
             }
         }
         //if(reader.Read())
-        public IEnumerable<Lesson> GetAllLessonByNameHall(int idhall)
+        public IEnumerable<Lesson> GetAllLessonByNameHall(string idhall)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 List<Lesson> lessons = new List<Lesson>();
 
                 SqlCommand command = connection.CreateCommand();
-                command.CommandText = "dbo.Sp_GetAllLessonsByIdHall";
+                command.CommandText = "dbo.Sp_GetAllLessonsByNameHall";
                 command.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParameterIdHall = new SqlParameter()
                 {
-                    DbType = DbType.Int32,
+                    DbType = DbType.String,
                     ParameterName = "@NameHall",
                     Value = idhall,
                     Direction = ParameterDirection.Input,

@@ -26,6 +26,9 @@ namespace FitnessCenter.Common
         private static ILessonsDao _lessonsLogic { get; set; } = new LessonsDao();
 
         public static ILessonsLogic LessonsLogic { get; set; } = new LessonsLogic(_lessonsLogic);
+
+        //private static IStudentDao _studentDao;
+        //public static IStudentLogic StudentDao => _studentDao ?? (_studentDao = new StudentDao());
     }
 
 }

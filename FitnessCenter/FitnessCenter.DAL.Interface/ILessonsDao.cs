@@ -17,10 +17,10 @@ namespace FitnessCenter.DAL.Interface
 
         IEnumerable<Lesson> GetAll();
 
-        IEnumerable<Lesson> GetAllLessonByNameHall(int idhall);
+        IEnumerable<Lesson> GetAllLessonByNameHall(string idhall);
 
         IEnumerable<Lesson> GetAllLessonBySubNumClient(int idclient);
 
-        IEnumerable<Lesson> GetAllLessonByIdPhoneCoach(int idclient);
+        IEnumerable<Lesson> GetAllLessonByPhoneCoach(long phone);
     }
 }
