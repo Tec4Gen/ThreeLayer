@@ -78,7 +78,7 @@ namespace FitnessCenter.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                Coach Coach = new Coach();
+                Coach coach;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -101,18 +101,21 @@ namespace FitnessCenter.DAL
 
                 if (reader.Read())
                 {
-                    Coach.Id = (int)reader["ID"];
-                    Coach.FirstName = reader["FirstName"] as string;
-                    Coach.LastName = reader["LastName"] as string;
-                    Coach.MiddleName = reader["MiddleName"] as string;
-                    Coach.Phone = (long)reader["Phone"];
+                    coach = new Coach()
+                    {
+                        Id = (int)reader["ID"],
+                        FirstName = reader["FirstName"] as string,
+                        LastName = reader["LastName"] as string,
+                        MiddleName = reader["MiddleName"] as string,
+                        Phone = (long)reader["Phone"],
+                    };
                 }
                 else
                 {
                     return null;
                 }
 
-                return Coach;
+                return coach;
 
             }
         }
@@ -233,7 +236,7 @@ namespace FitnessCenter.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString)) 
             {
-                Coach Coach = new Coach();
+                Coach coach;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -255,19 +258,21 @@ namespace FitnessCenter.DAL
 
                 if (reader.Read())
                 {
-                    Coach.Id = (int)reader["ID"];
-                    Coach.FirstName = reader["FirstName"] as string;
-                    Coach.LastName = reader["LastName"] as string;
-                    Coach.MiddleName = reader["MiddleName"] as string;
-                    Coach.Phone = (long)reader["Phone"];
-                    
+                    coach = new Coach()
+                    {
+                        Id = (int)reader["ID"],
+                        FirstName = reader["FirstName"] as string,
+                        LastName = reader["LastName"] as string,
+                        MiddleName = reader["MiddleName"] as string,
+                        Phone = (long)reader["Phone"],
+                    };
                 }
                 else 
                 {
                     return null;
                 }
 
-                return Coach;
+                return coach;
             }
         }
     }

@@ -29,7 +29,7 @@ namespace FitnessCenter.DAL.Interface
 
         IEnumerable<Lesson> EmploymentHallByDate(DateTime date, int hallid);
 
-        IEnumerable<Lesson> EmploymentHallByDateTime(DateTime datetime, int hallid);
+        Lesson EmploymentHallByDateTime(DateTime datetime, int hallid);
 
 
     }

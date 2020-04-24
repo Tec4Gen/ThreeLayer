@@ -128,7 +128,7 @@ namespace FitnessCenter.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                Client RemoveClinet = new Client();
+                Client client;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -151,19 +151,22 @@ namespace FitnessCenter.DAL
 
                 if (reader.Read())
                 {
-                    RemoveClinet.Id = (int)reader["ID"];
-                    RemoveClinet.FirstName = reader["FirstName"] as string;
-                    RemoveClinet.LastName = reader["LastName"] as string;
-                    RemoveClinet.MiddleName = reader["MiddleName"] as string;
-                    RemoveClinet.SubscriptionNumber = (int)reader["SubscriptionNumber"];
-                    RemoveClinet.IDCoach = reader["IDcoach"] as int?;
+                    client = new Client()
+                    {
+                        Id = (int)reader["ID"],
+                        FirstName = reader["FirstName"] as string,
+                        LastName = reader["LastName"] as string,
+                        MiddleName = reader["MiddleName"] as string,
+                        SubscriptionNumber = (int)reader["SubscriptionNumber"],
+                        IDCoach = reader["IDCoach"] as int?,
+                    };
                 }
                 else
                 {
                     return null;
                 }
 
-                return RemoveClinet;
+                return client;
             }
         }
 
@@ -171,7 +174,7 @@ namespace FitnessCenter.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                Client Client = new Client();
+                Client client;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -193,19 +196,22 @@ namespace FitnessCenter.DAL
 
                 if (reader.Read())
                 {
-                    Client.Id = (int)reader["ID"];
-                    Client.FirstName = reader["FirstName"] as string;
-                    Client.LastName = reader["LastName"] as string;
-                    Client.MiddleName = reader["MiddleName"] as string;
-                    Client.SubscriptionNumber = (int)reader["SubscriptionNumber"];
-                    Client.IDCoach = reader["IDcoach"] as int?;
+                    client = new Client()
+                    {
+                        Id = (int)reader["ID"],
+                        FirstName = reader["FirstName"] as string,
+                        LastName = reader["LastName"] as string,
+                        MiddleName = reader["MiddleName"] as string,
+                        SubscriptionNumber = (int)reader["SubscriptionNumber"],
+                        IDCoach = reader["IDCoach"] as int?,
+                    };
                 }
                 else
                 {
                     return null;
                 }
 
-                return Client;
+                return client;
             }
         }
 
@@ -213,7 +219,7 @@ namespace FitnessCenter.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                Client Client = new Client();
+                Client client;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -235,19 +241,22 @@ namespace FitnessCenter.DAL
 
                 if (reader.Read())
                 {
-                    Client.Id = (int)reader["ID"];
-                    Client.FirstName = reader["FirstName"] as string;
-                    Client.LastName = reader["LastName"] as string;
-                    Client.MiddleName = reader["MiddleName"] as string;
-                    Client.SubscriptionNumber = (int)reader["SubscriptionNumber"];
-                    Client.IDCoach = reader["IDcoach"] as int?;
+                    client = new Client()
+                    {
+                        Id = (int)reader["ID"],
+                        FirstName = reader["FirstName"] as string,
+                        LastName = reader["LastName"] as string,
+                        MiddleName = reader["MiddleName"] as string,
+                        SubscriptionNumber = (int)reader["SubscriptionNumber"],
+                        IDCoach = reader["IDCoach"] as int?,
+                    };
                 }
                 else
                 {
                     return null;
                 }
 
-                return Client;
+                return client;
             }
         }
 

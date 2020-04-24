@@ -42,7 +42,7 @@ namespace FitnessCenter
             return _lessonsDao.EmploymentHallByDate(time,hallid);
         }
 
-        public IEnumerable<Lesson> EmploymentHallByDateTime(DateTime datetime, int hallid)
+        public Lesson EmploymentHallByDateTime(DateTime datetime, int hallid)
         {
             return _lessonsDao.EmploymentHallByDateTime(datetime, hallid);
         }

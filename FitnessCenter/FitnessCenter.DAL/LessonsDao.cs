@@ -70,7 +70,7 @@ namespace FitnessCenter.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                Lesson lesson = new Lesson();
+                Lesson lesson;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -92,10 +92,13 @@ namespace FitnessCenter.DAL
 
                 if (reader.Read())
                 {
-                    lesson.Id = (int)reader["IDLessons"];
-                    lesson.IdClinet = (int)reader["IDClient"];
-                    lesson.IdHall = (int)reader["IDHall"];
-                    lesson.Time = (DateTime)reader["ClassTime"];
+                    lesson = new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"]
+                    };
                 }
                 else
                 {
@@ -282,105 +285,6 @@ namespace FitnessCenter.DAL
             }
         }
 
-        public IEnumerable<Lesson> EmploymentHallByDate(DateTime time, int hallid)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                List<Lesson> lessons = new List<Lesson>();
-
-                SqlCommand command = connection.CreateCommand();
-
-                command.CommandText = "dbo.Sp_EmploymentHallByDate";
-                command.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParameterDate = new SqlParameter()
-                {
-                    DbType = DbType.DateTime2,
-                    ParameterName = "@Date",
-                    Value = time,
-                    Direction = ParameterDirection.Input,
-                };
-                command.Parameters.Add(ParameterDate);
-
-                SqlParameter ParameterHallName = new SqlParameter()
-                {
-                    DbType = DbType.Int32,
-                    ParameterName = "@HallId",
-                    Value = hallid,
-                    Direction = ParameterDirection.Input,
-                };
-                command.Parameters.Add(ParameterHallName);
-
-                connection.Open();
-
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    lessons.Add(new Lesson()
-                    {
-                        Id = (int)reader["IDLessons"],
-                        IdClinet = (int)reader["IDClient"],
-                        IdHall = (int)reader["IDHall"],
-                        Time = (DateTime)reader["ClassTime"]
-                    });
-                }
-
-                return lessons;
-            }  
-        }
-        public Lesson EmploymentHallByDateTime(DateTime datetime, int hallid)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                Lesson lessons;
-
-                SqlCommand command = connection.CreateCommand();
-
-                command.CommandText = "dbo.Sp_EmploymentHallByDateTime";
-                command.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParameterDate = new SqlParameter()
-                {
-                    DbType = DbType.DateTime2,
-                    ParameterName = "@Date",
-                    Value = datetime,
-                    Direction = ParameterDirection.Input,
-                };
-                command.Parameters.Add(ParameterDate);
-
-                SqlParameter ParameterHallName = new SqlParameter()
-                {
-                    DbType = DbType.Int32,
-                    ParameterName = "@HallId",
-                    Value = hallid,
-                    Direction = ParameterDirection.Input,
-                };
-                command.Parameters.Add(ParameterHallName);
-
-                connection.Open();
-
-                var reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    lessons = new Lesson()
-                    {
-                        Id = (int)reader["IDLessons"],
-                        IdClinet = (int)reader["IDClient"],
-                        IdHall = (int)reader["IDHall"],
-                        Time = (DateTime)reader["ClassTime"]
-                    };
-                }
-                else 
-                {
-                    return null;
-                }
-
-                return lessons;
-            }
-        }
-
         public IEnumerable<Lesson> EmploymentAllHallByDate(DateTime date)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -459,5 +363,104 @@ namespace FitnessCenter.DAL
             }
         }
 
+        public IEnumerable<Lesson> EmploymentHallByDate(DateTime time, int hallid)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Lesson> lessons = new List<Lesson>();
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_EmploymentHallByDate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterDate = new SqlParameter()
+                {
+                    DbType = DbType.DateTime2,
+                    ParameterName = "@Date",
+                    Value = time,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterDate);
+
+                SqlParameter ParameterHallName = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@HallId",
+                    Value = hallid,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterHallName);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lessons.Add(new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"]
+                    });
+                }
+
+                return lessons;
+            }
+        }
+
+        public Lesson EmploymentHallByDateTime(DateTime datetime, int hallid)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                Lesson lessons;
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_EmploymentHallByDateTime";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterDate = new SqlParameter()
+                {
+                    DbType = DbType.DateTime2,
+                    ParameterName = "@Date",
+                    Value = datetime,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterDate);
+
+                SqlParameter ParameterHallName = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@HallId",
+                    Value = hallid,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterHallName);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    lessons = new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"]
+                    };
+                }
+                else
+                {
+                    return null;
+                }
+
+                return lessons;
+            }
+        }
     }
 }
