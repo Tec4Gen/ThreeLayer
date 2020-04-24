@@ -138,7 +138,7 @@ namespace FitnessCenter.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                Hall Hall = new Hall();
+                Hall hall;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -160,16 +160,19 @@ namespace FitnessCenter.DAL
 
                 if (reader.Read())
                 {
-                    Hall.Id = (int)reader["ID"];
-                    Hall.NameHall = reader["NameHall"] as string;
-                    Hall.Description = reader["Description"] as string;
+                    hall = new Hall()
+                    {
+                        Id = (int)reader["ID"],
+                        NameHall = reader["NameHall"] as string,
+                        Description = reader["Description"] as string,
+                    };
                 }
-                else 
+                else
                 {
                     return null;
                 }
 
-                return Hall;
+                return hall;
             }
         }
 

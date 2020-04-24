@@ -7,11 +7,13 @@ namespace FitnessCenter.BLL.Interface
     {
         string Add(Client item);
 
+        string Update(int subnumber, int idcoach);
+
         Client Delete(int subnumber);
 
         Client GetById(int id);
 
-        Client GetBySubNumber(int subnumber);
+        Client GetBySubNumber(int id);
 
         IEnumerable<Client> GetByLastName(string lastname);
 

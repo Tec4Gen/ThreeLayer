@@ -81,6 +81,49 @@ namespace FitnessCenter.DAL
                 return messages.ToString();
             }
         }
+
+        public string Update(int subnumber, int idcoach)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "dbo.Sp_UpdateCoachByClient";
+
+                SqlParameter ParameterSubscriptionNumber = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@SubscriptionNumber",
+                    Value = subnumber,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterSubscriptionNumber);
+
+
+                SqlParameter ParameterIdCoach = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@IDCoach",
+                    Value = idcoach,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(ParameterIdCoach);
+
+                connection.Open();
+
+                var messages = new StringBuilder();
+
+                connection.InfoMessage += new SqlInfoMessageEventHandler((sender, args) =>
+                {
+                    messages.AppendLine(args.Message);
+                });
+
+                var reader = command.ExecuteNonQuery();
+
+                return messages.ToString();
+            }
+        }
+
         public Client Delete(int subnumber)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -276,7 +319,6 @@ namespace FitnessCenter.DAL
             }
             return Client;
         }
-
 
 
     }

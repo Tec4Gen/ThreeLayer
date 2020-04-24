@@ -329,11 +329,11 @@ namespace FitnessCenter.DAL
                 return lessons;
             }  
         }
-        public IEnumerable<Lesson> EmploymentHallByDateTime(DateTime datetime, int hallid)
+        public Lesson EmploymentHallByDateTime(DateTime datetime, int hallid)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                List<Lesson> lessons = new List<Lesson>();
+                Lesson lessons;
 
                 SqlCommand command = connection.CreateCommand();
 
@@ -362,16 +362,21 @@ namespace FitnessCenter.DAL
 
                 var reader = command.ExecuteReader();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    lessons.Add(new Lesson()
+                    lessons = new Lesson()
                     {
                         Id = (int)reader["IDLessons"],
                         IdClinet = (int)reader["IDClient"],
                         IdHall = (int)reader["IDHall"],
                         Time = (DateTime)reader["ClassTime"]
-                    });
+                    };
                 }
+                else 
+                {
+                    return null;
+                }
+
                 return lessons;
             }
         }

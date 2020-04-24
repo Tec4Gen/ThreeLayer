@@ -56,6 +56,7 @@ ALTER TABLE Client
 	ADD CONSTRAINT FK_Coach_Client_ID FOREIGN KEY (IDCoach)
 		REFERENCES Coach(ID)
 		ON DELETE SET NULL
+		ON UPDATE CASCADE
 GO
 ALTER TABLE Lessons
 	ADD CONSTRAINT FK_Lessons_Client_ID FOREIGN KEY (IDClient)
@@ -98,6 +99,43 @@ BEGIN
 	INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 	VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
 END
+GO
+
+CREATE PROCEDURE [dbo].[Sp_UpdateCoachByClient]
+	@SubscriptionNumber INT,
+	@IDCoach INT
+AS
+BEGIN
+	IF EXISTS(SELECT ID,FirstName,LastName,Phone FROM Coach WHERE @IDCoach = ID)
+	BEGIN	
+		IF EXISTS(SELECT ID,FirstName,LastName,SubscriptionNumber FROM Client WHERE @SubscriptionNumber = SubscriptionNumber)
+		BEGIN
+			DECLARE @IDClient INT
+			SELECT @IDClient = ID FROM Client WHERE @SubscriptionNumber = SubscriptionNumber
+
+			DELETE	Lessons
+			WHERE @IDClient = IDClient
+
+			PRINT 'У клиента с номером ' + CAST(@SubscriptionNumber as NVARCHAR) +' Обновлен тренер ' + 
+			char(10) + 'Все занятия клиента были удалены'
+
+			UPDATE Client SET IDCoach = @IDCoach
+			FROM Client
+			WHERE (@SubscriptionNumber = SubscriptionNumber)
+			RETURN
+		END
+		ELSE 
+		BEGIN
+			PRINT 'Такого клиента нет'
+			RETURN 
+		END
+	END	
+	ELSE 
+	BEGIN
+		PRINT 'Такого тренера нет'
+		RETURN
+	END
+END	
 GO
 
 CREATE PROCEDURE [dbo].[Sp_GetBySubNumberClient]
@@ -157,6 +195,11 @@ CREATE PROCEDURE [dbo].[Sp_InsertCoach]
 	@Number BIGINT
 AS
 BEGIN
+	IF EXISTS(SELECT * FROM COACH WHERE @Number = Phone)
+	BEGIN
+		PRINT 'Тренер с таким номером уже существует'
+		RETURN
+	END
     INSERT INTO Coach(FirstName,LastName,MiddleName,Phone)
     VALUES (@FirstName,@LastName,@MiddleName,@Number)
 
@@ -228,10 +271,15 @@ CREATE PROCEDURE [dbo].[Sp_InsertHall]
 	@Description NVARCHAR(150) = NULL
 AS
 BEGIN
+	IF EXISTS(SELECT * FROM Hall WHERE @NameHall = NameHall)
+	BEGIN
+		PRINT 'Зал с таким названием уже существует'
+		RETURN
+	END
+
     INSERT INTO Hall(NameHall,[Description])
     VALUES (@NameHall,@Description)
-	
-    SET @Id = SCOPE_IDENTITY();
+
 END
 GO
 
@@ -336,6 +384,7 @@ AS
 BEGIN
      SELECT IDLessons,IDClient,IDHall,ClassTime
 	 FROM Lessons 
+
 END
 GO
 
@@ -429,3 +478,4 @@ SELECT IDLessons, IDClient, IDHall,ClassTime
 		FROM Lessons 
 		WHERE (ABS(DATEDIFF(MINUTE,@Date,ClassTime)) <= 60)
 GO
+

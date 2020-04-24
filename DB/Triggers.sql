@@ -26,7 +26,13 @@ ELSE
 	BEGIN
 		PRINT 'Тренер отсуствует в записи , запись добавлена без тренера '
 		SET @IDCoach = NULL
-		SET @SubscriptionNumber = 100000 + IDENT_CURRENT('Client');
+		IF (SELECT COUNT(*) 
+				FROM Client 
+				WHERE SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client')) = 1	
+			BEGIN
+				SET @SubscriptionNumber = @SubscriptionNumber + 1;
+			END
+		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
 		PRINT 'Клиент добавлен его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
@@ -62,7 +68,13 @@ BEGIN
 	IF (@ChekCoach = 1)
 	BEGIN
 		PRINT 'Клиент добавлена с тренером'
-		SET @SubscriptionNumber = 100000 + IDENT_CURRENT('Client');
+		IF (SELECT COUNT(*) 
+				FROM Client 
+				WHERE SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client')) = 1	
+			BEGIN
+				SET @SubscriptionNumber = @SubscriptionNumber + 1;
+			END
+		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
 				
@@ -72,8 +84,14 @@ BEGIN
 	ELSE IF (@ChekCoach = 0)
 	BEGIN
 		SET @IDCoach = NULL
-		PRINT 'Такого тренера нет, клиент добавлен без тренера '
-		SET @SubscriptionNumber = 100000 + IDENT_CURRENT('Client');
+		PRINT 'Такого тренера нет, клиент добавлен без тренера'
+			IF (SELECT COUNT(*) 
+				FROM Client 
+				WHERE SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client')) = 1	
+			BEGIN
+				SET @SubscriptionNumber = @SubscriptionNumber + 1;
+			END
+		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
 				
@@ -132,7 +150,7 @@ ELSE
 			BEGIN	
 				INSERT INTO Coach(FirstName,LastName,MiddleName,Phone)
 				VALUES (@FirstName,@LastName,@MiddleName,@Phone)
-				PRINT 'Тренер добавлен его ID:' + CAST(IDENT_CURRENT('Coach') as VARCHAR) + char(10) +'Номер телефона:'+ CAST(@Phone as NVARCHAR);
+				PRINT 'Тренер добавлен его ID:' + CAST(IDENT_CURRENT('Coach') as NVARCHAR) + char(10) +'Номер телефона:'+ CAST(@Phone as NVARCHAR);
 			END
 	END
 END

@@ -17,6 +17,12 @@ namespace FitnessCenter
         {
             return _clientdao.Add(item);
         }
+
+        public string Update(int subnumber, int idcoach)
+        {
+            return _clientdao.Update(subnumber,idcoach);
+        }
+
         public Client Delete(int subnumber)
         {
             return _clientdao.Delete(subnumber);
@@ -41,5 +47,7 @@ namespace FitnessCenter
         {
             return _clientdao.GetByLastName(lastname);
         }
+
+
     }
 }
