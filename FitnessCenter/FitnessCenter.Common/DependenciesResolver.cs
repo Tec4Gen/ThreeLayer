@@ -1,11 +1,6 @@
 ﻿using FitnessCenter.BLL.Interface;
 using FitnessCenter.DAL;
 using FitnessCenter.DAL.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitnessCenter.Common
 {
@@ -27,8 +22,6 @@ namespace FitnessCenter.Common
 
         public static ILessonsLogic LessonsLogic { get; set; } = new LessonsLogic(_lessonsLogic);
 
-        //private static IStudentDao _studentDao;
-        //public static IStudentLogic StudentDao => _studentDao ?? (_studentDao = new StudentDao());
     }
 
 }

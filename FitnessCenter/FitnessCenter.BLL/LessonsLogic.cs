@@ -27,6 +27,26 @@ namespace FitnessCenter
             return _lessonsDao.Delete(id);
         }
 
+        public IEnumerable<Lesson> EmploymentAllHallByDate(DateTime date)
+        {
+            return _lessonsDao.EmploymentAllHallByDate(date);
+        }
+
+        public IEnumerable<Lesson> EmploymentAllHallByDateTime(DateTime datetime)
+        {
+            return _lessonsDao.EmploymentAllHallByDateTime(datetime);
+        }
+
+        public IEnumerable<Lesson> EmploymentHallByDate(DateTime time,int hallid)
+        {
+            return _lessonsDao.EmploymentHallByDate(time,hallid);
+        }
+
+        public IEnumerable<Lesson> EmploymentHallByDateTime(DateTime datetime, int hallid)
+        {
+            return _lessonsDao.EmploymentHallByDateTime(datetime, hallid);
+        }
+
         public IEnumerable<Lesson> GetAll()
         {
             return _lessonsDao.GetAll();

@@ -391,3 +391,41 @@ IF (@IDCoach IS NOT NULL)
 			WHERE(IDCoach = @IDCoach)
 	END
 GO
+
+CREATE PROCEDURE [dbo].[Sp_EmploymentHallByDate]
+	@Date DATETIME2,
+	@HallId INT
+AS
+
+SELECT IDLessons, IDClient, IDHall,ClassTime
+		FROM Lessons 
+		WHERE ((CAST(ClassTime AS DATE) = @Date) AND @HallId = IDHall)
+GO
+
+CREATE PROCEDURE [dbo].[Sp_EmploymentHallByDateTime]
+	@Date DATETIME2,
+	@HallId INT
+AS
+
+SELECT IDLessons, IDClient, IDHall,ClassTime
+		FROM Lessons 
+		WHERE ((ABS(DATEDIFF(MINUTE,@Date,ClassTime)) < 60) AND @HallId = IDHall)
+GO
+
+CREATE PROCEDURE [dbo].[Sp_EmploymentAllHallByDate]
+	@Date DATETIME2
+AS
+
+SELECT IDLessons, IDClient, IDHall,ClassTime
+		FROM Lessons 
+		WHERE (CAST(ClassTime AS DATE) = @Date)
+GO
+
+CREATE PROCEDURE [dbo].[Sp_EmploymentAllHallByDateTime]
+	@Date DATETIME2
+AS
+
+SELECT IDLessons, IDClient, IDHall,ClassTime
+		FROM Lessons 
+		WHERE (ABS(DATEDIFF(MINUTE,@Date,ClassTime)) <= 60)
+GO

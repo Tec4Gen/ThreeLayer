@@ -18,6 +18,7 @@ namespace FitnessCenter.ConsolePL
             //    LastName = "Викторович",
             //});
             //Console.WriteLine(b);
+
             //coachLogic.Add(new Coach()
             //{
             //    FirstName = "Андрей",
@@ -26,6 +27,7 @@ namespace FitnessCenter.ConsolePL
             //    Phone = 9256987741,
             //});
             //Console.WriteLine();
+
             //coachLogic.Add(new Coach()
             //{
             //    FirstName = "Алексей",
@@ -41,6 +43,7 @@ namespace FitnessCenter.ConsolePL
             //    MiddleName = "Игоревич",
             //    Phone = 9201495878,
             //});
+
             //coachLogic.Add(new Coach()
             //{
             //    FirstName = "Егор",
@@ -48,14 +51,14 @@ namespace FitnessCenter.ConsolePL
             //    MiddleName = "Юрьевич",
             //    Phone = 9256545555,
             //});
+            //coachLogic.Delete(9256545555);
 
+            //var c = coachLogic.GetAll();
 
-            // var c = coachLogic.GetAll();
-
-            // foreach (var item in c)
-            // {
-            //     Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
-            // }
+            //foreach (var item in c)
+            //{
+            //    Console.WriteLine($"{item.Id}|{item.FirstName}|{item.LastName}|{item.MiddleName}|{item.Phone}");
+            //}
             //#region AddClient
             var clinetLogic = DependenciesResolver.ClientLogic;
 
@@ -140,17 +143,9 @@ namespace FitnessCenter.ConsolePL
             //    MiddleName = "Юрьевич",
             //    IDCoach = 25,
             //});
-
-
-
-
-
-
             ////#endregion
 
-
-
-            //var halllogic = DependenciesResolver.HallLogic;
+            var halllogic = DependenciesResolver.HallLogic;
 
             //var c = halllogic.Add(new Hall()
             //{
@@ -179,6 +174,9 @@ namespace FitnessCenter.ConsolePL
             //{
             //    NameHall = "Фreen",
             //});
+
+            //halllogic.Delete("Фreen");
+
             //// Console.WriteLine(b);
             //Console.WriteLine(c);
             //Console.WriteLine(a);
@@ -189,13 +187,13 @@ namespace FitnessCenter.ConsolePL
 
             var Lessonsogic = DependenciesResolver.LessonsLogic;
 
-            var Less = Lessonsogic.Add(new Lesson()
-            {
-                IdClinet = 8,
-                IdHall = 2,
-                Time = new DateTime(2020, 4, 22, 2, 35, 0),
-            });
-            Console.WriteLine(Less);
+            //var Less = Lessonsogic.Add(new Lesson()
+            //{
+            //    IdClinet = 8,
+            //    IdHall = 2,
+            //    Time = new DateTime(2020, 4, 22, 2, 35, 0),
+            //});
+            //Console.WriteLine(Less);
             ////////////////////////////////////////////
             //var less = Lessonsogic.Add(new Lesson()
             //{
@@ -211,21 +209,22 @@ namespace FitnessCenter.ConsolePL
             //    Time = new DateTime(2020, 5, 14, 2, 35, 0),
             //});
 
-            //Less = Lessonsogic.Add(new Lesson()
+           //var Less = Lessonsogic.Add(new Lesson()
+           // {
+           //     IdClinet = 14,
+           //     IdHall = 6,
+           //     Time = new DateTime(2020, 5, 14, 2, 35, 0),
+           // });
+           // Console.WriteLine(Less);
+
+             //Less = Lessonsogic.Add(new Lesson()
             //{
             //    IdClinet = 16,
             //    IdHall = 15,
             //    Time = new DateTime(2020, 5, 14, 2, 35, 0),
             //});
 
-            //Less = Lessonsogic.Add(new Lesson()
-            //{
-            //    IdClinet = 16,
-            //    IdHall = 15,
-            //    Time = new DateTime(2020, 5, 14, 2, 35, 0),
-            //});
-
-            //var les = Lessonsogic.GetAllLessonByNameHall("Red");
+            var les = Lessonsogic.EmploymentHallByDateTime(new DateTime(2020, 5, 14, 15, 36, 0),7);
 
 
             //foreach (var item in les)

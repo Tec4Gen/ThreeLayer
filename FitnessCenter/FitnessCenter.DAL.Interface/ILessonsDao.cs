@@ -22,5 +22,15 @@ namespace FitnessCenter.DAL.Interface
         IEnumerable<Lesson> GetAllLessonBySubNumClient(int idclient);
 
         IEnumerable<Lesson> GetAllLessonByPhoneCoach(long phone);
+
+        IEnumerable<Lesson> EmploymentAllHallByDate(DateTime date);
+
+        IEnumerable<Lesson> EmploymentAllHallByDateTime(DateTime datetime);
+
+        IEnumerable<Lesson> EmploymentHallByDate(DateTime date, int hallid);
+
+        IEnumerable<Lesson> EmploymentHallByDateTime(DateTime datetime, int hallid);
+
+
     }
 }

@@ -65,6 +65,7 @@ namespace FitnessCenter.DAL
                 return messages.ToString();
             }
         }
+
         public Lesson Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -168,7 +169,6 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-
         //if(reader.Read())
         public IEnumerable<Lesson> GetAllLessonBySubNumClient(int idclient)
         {
@@ -244,7 +244,6 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-
         //if(reader.Read())
         public IEnumerable<Lesson> GetById(int id)
         {
@@ -282,5 +281,178 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
+
+        public IEnumerable<Lesson> EmploymentHallByDate(DateTime time, int hallid)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Lesson> lessons = new List<Lesson>();
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_EmploymentHallByDate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterDate = new SqlParameter()
+                {
+                    DbType = DbType.DateTime2,
+                    ParameterName = "@Date",
+                    Value = time,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterDate);
+
+                SqlParameter ParameterHallName = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@HallId",
+                    Value = hallid,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterHallName);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lessons.Add(new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"]
+                    });
+                }
+
+                return lessons;
+            }  
+        }
+        public IEnumerable<Lesson> EmploymentHallByDateTime(DateTime datetime, int hallid)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Lesson> lessons = new List<Lesson>();
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_EmploymentHallByDateTime";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterDate = new SqlParameter()
+                {
+                    DbType = DbType.DateTime2,
+                    ParameterName = "@Date",
+                    Value = datetime,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterDate);
+
+                SqlParameter ParameterHallName = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@HallId",
+                    Value = hallid,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterHallName);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lessons.Add(new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"]
+                    });
+                }
+                return lessons;
+            }
+        }
+
+        public IEnumerable<Lesson> EmploymentAllHallByDate(DateTime date)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Lesson> lessons = new List<Lesson>();
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_EmploymentAllHallByDate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterDate = new SqlParameter()
+                {
+                    DbType = DbType.DateTime2,
+                    ParameterName = "@Date",
+                    Value = date,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterDate);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lessons.Add(new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"]
+                    });
+                }
+
+                return lessons;
+            }
+        }
+
+        public IEnumerable<Lesson> EmploymentAllHallByDateTime(DateTime datetime)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Lesson> lessons = new List<Lesson>();
+
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "dbo.Sp_EmploymentAllHallByDateTime";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterDate = new SqlParameter()
+                {
+                    DbType = DbType.DateTime2,
+                    ParameterName = "@Date",
+                    Value = datetime,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterDate);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lessons.Add(new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"]
+                    });
+                }
+
+                return lessons;
+            }
+        }
+
     }
 }
