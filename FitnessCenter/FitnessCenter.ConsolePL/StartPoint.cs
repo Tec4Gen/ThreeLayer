@@ -211,7 +211,7 @@ namespace FitnessCenter.ConsolePL
             ///если удаления не было функция вернет Null
             var deletedClient = clinetLogic.Delete(100002);
 
-            if (deletedClient != null)
+            if (deletedClient == null)
             {
                 Console.WriteLine("Такого клиента нет");
             }
@@ -277,7 +277,7 @@ namespace FitnessCenter.ConsolePL
             //Удалим
             var deletedhall = halllogic.Delete("Green");
 
-            if (deletedhall != null)
+            if (deletedhall == null)
             {
                 Console.WriteLine("Такого зала нет");
             }
@@ -412,7 +412,7 @@ namespace FitnessCenter.ConsolePL
             }
             //Удаляем занятие по его ID
             var deletedlesson = Lessonsogic.Delete(1);
-            if (deletedlesson != null)
+            if (deletedlesson == null)
             {
                 Console.WriteLine("Такого занятия нет");
             }
