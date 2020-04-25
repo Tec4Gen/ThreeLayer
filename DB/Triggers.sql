@@ -9,7 +9,7 @@ DECLARE @FirstName VARCHAR(50)
 DECLARE @LastName VARCHAR(50)
 DECLARE @MiddleName VARCHAR(50)
 DECLARE @SubscriptionNumber numeric(6) = 100000
-DECLARE @IDCoach INT
+DECLARE @IDCoach NVARCHAR(50)
 DECLARE @ChekCoach INT = 0
 
 SET @FirstName = (SELECT FirstName FROM inserted);
@@ -19,16 +19,15 @@ SET @IDCoach = (SELECT IDCoach FROM inserted);
 
 IF EXISTS (SELECT IDCoach FROM inserted WHERE IDCoach IS NOT NULL)
 	BEGIN
-		PRINT @ChekCoach
 		SET @ChekCoach = 0
 	END
 ELSE 
 	BEGIN
-		PRINT 'Тренер отсуствует в записи , запись добавлена без тренера '
+		PRINT 'Тренер отсуствует в записи , запись добавлена без тренера'
 		SET @IDCoach = NULL
 		IF (SELECT COUNT(*) 
 				FROM Client 
-				WHERE SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client')) = 1	
+				WHERE (SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client'))) = 1	
 			BEGIN
 				SET @SubscriptionNumber = @SubscriptionNumber + 1;
 			END
@@ -46,12 +45,12 @@ IF
 )
 BEGIN
 	PRINT 'ФИО не должны быть меньше 2 символов и больше 30'
+	RETURN
 END	
 ELSE 
 BEGIN
 	DECLARE @IdAddClient INT
 
-	
 	IF EXISTS
 	(
 		SELECT ID,LastName,FirstName FROM Coach
@@ -62,23 +61,20 @@ BEGIN
 		SET @ChekCoach = 1
 	END
 
-	PRINT @ChekCoach
-
-
 	IF (@ChekCoach = 1)
 	BEGIN
-		PRINT 'Клиент добавлена с тренером'
+		PRINT 'Клиент добавлен с тренером'
 		IF (SELECT COUNT(*) 
 				FROM Client 
-				WHERE SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client')) = 1	
+				WHERE (SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client'))) = 1	
 			BEGIN
 				SET @SubscriptionNumber = @SubscriptionNumber + 1;
 			END
 		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
-		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
-				
+		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)		
 		PRINT 'Клиент добавлен его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
+		RETURN
 	END 
 
 	ELSE IF (@ChekCoach = 0)
@@ -96,6 +92,7 @@ BEGIN
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
 				
 		PRINT 'Клиент добавлен его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
+		RETURN
 	END
 
 END	

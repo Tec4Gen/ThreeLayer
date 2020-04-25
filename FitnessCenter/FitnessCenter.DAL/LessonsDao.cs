@@ -12,7 +12,12 @@ namespace FitnessCenter.DAL
     public class LessonsDao : ILessonsDao
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["FitnessCenter"].ConnectionString;
-
+        /*В целом логика такая же, но получание информации о занятиях клиента, залла, тренера, идут через этот класс, занятие тренера проще получать через клиента
+        т.к в базе нет прямого доступа тренера к занятию, оно идет только через клиента. То есть если у клиента, есть занятие,
+        то он не может провести в одно и тоже время занятие, т.к проверяеться свободен ли тренер. В логике базы, стоит проверка занятости клиента, но по сути оно отработает 
+        Только в случае когда клиент будет заниматься в зале без тренера, но это не предсумотренно.
+        Если бы я реализовывал проверку занятости зала в классе halldao то надо было бы доп поля, аналогично для клиента, по этому это больше не учет в проектировании базы
+            */
         public string Add(Lesson item)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -107,8 +112,8 @@ namespace FitnessCenter.DAL
                 return lesson;
             }
         }
-        //if(reader.Read())
-        public IEnumerable<Lesson> GetAll()
+
+        public IEnumerable<Lesson> GetAll() 
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -135,7 +140,7 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-        //if(reader.Read())
+        //Получение занатия тренера, клиента, и зала 
         public IEnumerable<Lesson> GetAllLessonByPhoneCoach(long phone)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -172,7 +177,7 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-        //if(reader.Read())
+
         public IEnumerable<Lesson> GetAllLessonBySubNumClient(int idclient)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -210,7 +215,7 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-        //if(reader.Read())
+
         public IEnumerable<Lesson> GetAllLessonByNameHall(string idhall)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -247,7 +252,7 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-        //if(reader.Read())
+
         public IEnumerable<Lesson> GetById(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -284,7 +289,7 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-
+        //Занятости всех залов по времени  
         public IEnumerable<Lesson> EmploymentAllHallByDate(DateTime date)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -362,7 +367,7 @@ namespace FitnessCenter.DAL
                 return lessons;
             }
         }
-
+        //Определенного зала
         public IEnumerable<Lesson> EmploymentHallByDate(DateTime time, int hallid)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))

@@ -21,6 +21,8 @@ namespace FitnessCenter.BLL.Interface
 
         IEnumerable<Lesson> GetAllLessonByPhoneCoach(long phone);
 
+        IEnumerable<Lesson> GetAllLessonBySubNumClient(int idclient);
+
         IEnumerable<Lesson> EmploymentAllHallByDate(DateTime date);
 
         IEnumerable<Lesson> EmploymentAllHallByDateTime(DateTime datetime);

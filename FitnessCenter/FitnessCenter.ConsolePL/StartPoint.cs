@@ -4,6 +4,16 @@ using System;
 
 namespace FitnessCenter.ConsolePL
 {
+
+    /*
+    Для начала запуска основной скрипт с БД, потом триггеры.
+
+    Строка подключения храниться в конфиге ---->PL--->AppConfig, подключяем базу, берем строку и вставляем ее в конфиг, вместо сзвездочек и старой строки
+    <add name ="FitnessCenter" connectionString ="***Data Source=DESKTOP-I2VSO11\MYEXPRESS;Initial Catalog=FitnessCenter;Integrated Security=True***"/>
+    Все можно запускать консольное приложение, если база подключена, то все отработает.
+
+    Фукционал логики работы DAL описана в кратце в dao классах
+     */
     class Program
     {
         static void Main(string[] args)
@@ -70,7 +80,7 @@ namespace FitnessCenter.ConsolePL
             {
                 Console.WriteLine("Такого тренера нет");
             }
-            else 
+            else
             {
                 Console.WriteLine($"Удален: {deleted.Id}|." +
                                   $"{deleted.FirstName}|" +
@@ -118,7 +128,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
-            clinetLogic.Add(new Client()
+            callbackmessage = clinetLogic.Add(new Client()
             {
                 FirstName = "Антон",
                 LastName = "Худобин",
@@ -127,7 +137,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
-            clinetLogic.Add(new Client()
+            callbackmessage = clinetLogic.Add(new Client()
             {
                 FirstName = "Илья",
                 LastName = "Хабибулин",
@@ -136,7 +146,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
-            clinetLogic.Add(new Client()
+            callbackmessage = clinetLogic.Add(new Client()
             {
                 FirstName = "Виктор",
                 LastName = "Андрейченко",
@@ -145,7 +155,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
-            clinetLogic.Add(new Client()
+            callbackmessage = clinetLogic.Add(new Client()
             {
                 FirstName = "Алексей",
                 LastName = "Игнатьев",
@@ -154,7 +164,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
-            clinetLogic.Add(new Client()
+            callbackmessage = clinetLogic.Add(new Client()
             {
                 FirstName = "Анастасия",
                 LastName = "Люшина",
@@ -163,7 +173,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
-            clinetLogic.Add(new Client()
+            callbackmessage = clinetLogic.Add(new Client()
             {
                 FirstName = "Игорь",
                 LastName = "Илюшкин",
@@ -172,7 +182,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
-            clinetLogic.Add(new Client()
+            callbackmessage = clinetLogic.Add(new Client()
             {
                 FirstName = "Антон",
                 LastName = "Вилюшин",
@@ -181,7 +191,7 @@ namespace FitnessCenter.ConsolePL
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
             //Обновление вовзращает результат в виде сообщения
-            callbackmessage = clinetLogic.Update(100019, 2);
+            callbackmessage = clinetLogic.Update(1000013, 2);
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
             //Список клиентов в БД, до удаления
@@ -290,11 +300,13 @@ namespace FitnessCenter.ConsolePL
 
             Console.WriteLine($"{item.Id}|{item.NameHall}|{item.Description}|");
             #endregion
-
+            /****************************************************************************  
+            ****************************************************************************  
+            ****************************************************************************/
             #region LessonLogic
 
             var Lessonsogic = DependenciesResolver.LessonsLogic;
-
+            //Аналогичная механика вставки записей в таблицу как для тренера, клиента, и холла
             var Less = Lessonsogic.Add(new Lesson()
             {
                 IdClinet = 4,
@@ -302,12 +314,12 @@ namespace FitnessCenter.ConsolePL
                 Time = new DateTime(2020, 4, 22, 16, 35, 0),
             });
             Console.WriteLine(Less + Environment.NewLine);
-            
+
             //Тут вставка не произойдет
             Less = Lessonsogic.Add(new Lesson()
             {
                 IdClinet = 3,
-                IdHall = 3,
+                IdHall = 2,
                 Time = new DateTime(2020, 4, 22, 16, 35, 0),
             });
             Console.WriteLine(Less + Environment.NewLine);
@@ -324,34 +336,125 @@ namespace FitnessCenter.ConsolePL
 
             Less = Lessonsogic.Add(new Lesson()
             {
-                IdClinet = 14,
-                IdHall = 6,
-                Time = new DateTime(2020, 5, 14, 2, 35, 0),
+                IdClinet = 4,
+                IdHall = 1,
+                Time = new DateTime(2020, 5, 14, 13, 15, 0),
             });
             Console.WriteLine(Less + Environment.NewLine);
 
             Less = Lessonsogic.Add(new Lesson()
             {
-                IdClinet = 16,
-                IdHall = 15,
-                Time = new DateTime(2020, 5, 14, 2, 35, 0),
+                IdClinet = 5,
+                IdHall = 3,
+                Time = new DateTime(2020, 5, 14, 10, 00, 0),
             });
             Console.WriteLine(Less + Environment.NewLine);
 
-            //Получим занятие которое будет пересекаться с введенным временем
-            var les = Lessonsogic.EmploymentHallByDateTime(new DateTime(2020, 5, 14, 15, 36, 0), 7);
+            Less = Lessonsogic.Add(new Lesson()
+            {
+                IdClinet = 5,
+                IdHall = 4,
+                Time = new DateTime(2020, 5, 14, 21, 00, 0),
+            });
+            Console.WriteLine(Less + Environment.NewLine);
+
+            Less = Lessonsogic.Add(new Lesson()
+            {
+                IdClinet = 3,
+                IdHall = 3,
+                Time = new DateTime(2020, 4, 22, 16, 35, 0),
+            });
+            Console.WriteLine(Less + Environment.NewLine);
 
 
-            foreach (var items in les)
+            /////////////////////////Занятости залов////////////////////////////
+            //Получим занятость зала на данное время и дату
+            var les = Lessonsogic.EmploymentHallByDateTime(new DateTime(2020, 5, 14, 10, 00, 0), 3);
+
+            Console.WriteLine($"Занятие в 3 зале в 10 00,5/14/2020: {les.Id}|{les.IdClinet}|{les.IdHall}|{les.Time}");
+
+            var les1 = Lessonsogic.EmploymentAllHallByDate(new DateTime(2020, 5, 14));
+
+            //Получим занятость зала на данное  дату
+            Console.WriteLine($"Занятие в 3 зале в 10 00,5/14/2020:");
+            foreach (var items in les1)
             {
                 Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");
             }
+            Console.WriteLine();
+            //Получим все залы и у которых есть занятия в эту дату
+            les1 = Lessonsogic.EmploymentAllHallByDate(new DateTime(2020, 5, 14));
+
+            Console.WriteLine($"Занятие  залах на 5/14/2020:");
+            foreach (var items in les1)
+            {
+                Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");
+            }
+            Console.WriteLine();
+            //Получим все залы и у которых есть занятия в эту дату и время
+            les1 = Lessonsogic.EmploymentAllHallByDateTime(new DateTime(2020, 5, 14, 16, 35, 0));
+
+            Console.WriteLine($"Занятие  залах на 5/14/2020 16:35:00");
+            foreach (var items in les1)
+            {
+                Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");
+            }
+            Console.WriteLine();
+
+            les1 = Lessonsogic.GetAll();
+            //////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("Список занятий до удаления");
+
+            foreach (var items in les1)
+            {
+                Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");
+            }
+            //Удаляем занятие по его ID
+            var deletedlesson = Lessonsogic.Delete(1);
+            if (deletedlesson != null)
+            {
+                Console.WriteLine("Такого занятия нет");
+            }
+            else
+            {
+                Console.WriteLine($"Удалено занятие: {deletedlesson.Id}|" +
+                            $"{deletedlesson.IdClinet}|" +
+                            $"{deletedlesson.IdHall}|" +
+                            $"{deletedlesson.Time}|");
+            }
+
+            les1 = Lessonsogic.GetAll();
+            Console.WriteLine("Список занятий после удаления, занятия с id 1" + Environment.NewLine);
+
+            foreach (var items in les1)
+            {
+                Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");
+            }
+            Console.WriteLine();
+            //////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////
+            //Все занятия белого зала
+            les1 = Lessonsogic.GetAllLessonByNameHall("White");
+            Console.WriteLine("Занятия в белом зале");
+            foreach (var items in les1)
+            {
+                Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");
+            }
+            Console.WriteLine();
+            //Все занятия тренеров
+            les1 = Lessonsogic.GetAllLessonByPhoneCoach(9256545555);
+            Console.WriteLine("Занятия тренера с номером");
+            foreach (var items in les1)
+            {
+                Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");
+            }
+            //////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////
+            Lessonsogic.GetAllLessonBySubNumClient(100005);
+            Console.WriteLine();
             #endregion
 
-
-           
-
-            
             Console.ReadLine();
         }
     }
