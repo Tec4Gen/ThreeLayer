@@ -238,6 +238,7 @@
             this.MinimumSize = new System.Drawing.Size(610, 250);
             this.Name = "CoachForm";
             this.Text = "CoachForm";
+            this.Load += new System.EventHandler(this.CoachForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

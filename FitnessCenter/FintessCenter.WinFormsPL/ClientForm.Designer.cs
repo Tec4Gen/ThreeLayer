@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGetAll = new System.Windows.Forms.Button();
+            this.btnGetAllClient = new System.Windows.Forms.Button();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnUpdateCoach = new System.Windows.Forms.Button();
             this.btnDeleteClient = new System.Windows.Forms.Button();
-            this.btnGetByLastName = new System.Windows.Forms.Button();
+            this.btnGetByLastNameClient = new System.Windows.Forms.Button();
             this.textBoxAddLastNameClient = new System.Windows.Forms.TextBox();
             this.textAddFirstNameClient = new System.Windows.Forms.TextBox();
             this.textBoxAddMiddleNameClient = new System.Windows.Forms.TextBox();
@@ -51,14 +51,15 @@
             this.textBoxGetByLastNameClient = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnGetAll
+            // btnGetAllClient
             // 
-            this.btnGetAll.Location = new System.Drawing.Point(31, 12);
-            this.btnGetAll.Name = "btnGetAll";
-            this.btnGetAll.Size = new System.Drawing.Size(139, 29);
-            this.btnGetAll.TabIndex = 0;
-            this.btnGetAll.Text = "Получить всех";
-            this.btnGetAll.UseVisualStyleBackColor = true;
+            this.btnGetAllClient.Location = new System.Drawing.Point(31, 12);
+            this.btnGetAllClient.Name = "btnGetAllClient";
+            this.btnGetAllClient.Size = new System.Drawing.Size(139, 29);
+            this.btnGetAllClient.TabIndex = 0;
+            this.btnGetAllClient.Text = "Получить всех";
+            this.btnGetAllClient.UseVisualStyleBackColor = true;
+            this.btnGetAllClient.Click += new System.EventHandler(this.btnGetAllClient_Click);
             // 
             // btnAddClient
             // 
@@ -87,14 +88,14 @@
             this.btnDeleteClient.Text = "Удалить клиента";
             this.btnDeleteClient.UseVisualStyleBackColor = true;
             // 
-            // btnGetByLastName
+            // btnGetByLastNameClient
             // 
-            this.btnGetByLastName.Location = new System.Drawing.Point(31, 47);
-            this.btnGetByLastName.Name = "btnGetByLastName";
-            this.btnGetByLastName.Size = new System.Drawing.Size(139, 29);
-            this.btnGetByLastName.TabIndex = 4;
-            this.btnGetByLastName.Text = "Найти по фамилии";
-            this.btnGetByLastName.UseVisualStyleBackColor = true;
+            this.btnGetByLastNameClient.Location = new System.Drawing.Point(31, 47);
+            this.btnGetByLastNameClient.Name = "btnGetByLastNameClient";
+            this.btnGetByLastNameClient.Size = new System.Drawing.Size(139, 29);
+            this.btnGetByLastNameClient.TabIndex = 4;
+            this.btnGetByLastNameClient.Text = "Найти по фамилии";
+            this.btnGetByLastNameClient.UseVisualStyleBackColor = true;
             // 
             // textBoxAddLastNameClient
             // 
@@ -103,7 +104,6 @@
             this.textBoxAddLastNameClient.Size = new System.Drawing.Size(102, 20);
             this.textBoxAddLastNameClient.TabIndex = 5;
             this.textBoxAddLastNameClient.Tag = "";
-            this.textBoxAddLastNameClient.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textAddFirstNameClient
             // 
@@ -250,15 +250,16 @@
             this.Controls.Add(this.textBoxAddMiddleNameClient);
             this.Controls.Add(this.textAddFirstNameClient);
             this.Controls.Add(this.textBoxAddLastNameClient);
-            this.Controls.Add(this.btnGetByLastName);
+            this.Controls.Add(this.btnGetByLastNameClient);
             this.Controls.Add(this.btnDeleteClient);
             this.Controls.Add(this.btnUpdateCoach);
             this.Controls.Add(this.btnAddClient);
-            this.Controls.Add(this.btnGetAll);
+            this.Controls.Add(this.btnGetAllClient);
             this.MaximumSize = new System.Drawing.Size(610, 250);
             this.MinimumSize = new System.Drawing.Size(610, 250);
             this.Name = "ClientForm";
-            this.Text = "CoachForm";
+            this.Text = "ClientForm";
+            this.Load += new System.EventHandler(this.ClientForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,11 +267,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnGetAll;
+        private System.Windows.Forms.Button btnGetAllClient;
         private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnUpdateCoach;
         private System.Windows.Forms.Button btnDeleteClient;
-        private System.Windows.Forms.Button btnGetByLastName;
+        private System.Windows.Forms.Button btnGetByLastNameClient;
         private System.Windows.Forms.TextBox textBoxAddLastNameClient;
         private System.Windows.Forms.TextBox textAddFirstNameClient;
         private System.Windows.Forms.TextBox textBoxAddMiddleNameClient;

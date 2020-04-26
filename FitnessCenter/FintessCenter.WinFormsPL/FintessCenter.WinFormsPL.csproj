@@ -47,17 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoachForm.cs">
+    <Compile Include="CallBackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CoachForm.Designer.cs">
-      <DependentUpon>CoachForm.cs</DependentUpon>
+    <Compile Include="CallBackForm.Designer.cs">
+      <DependentUpon>CallBackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoachForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoachForm.Designer.cs">
+      <DependentUpon>CoachForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HallForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HallForm.Designer.cs">
+      <DependentUpon>HallForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LessonsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LessonsForm.Designer.cs">
+      <DependentUpon>LessonsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -67,11 +85,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CoachForm.resx">
-      <DependentUpon>CoachForm.cs</DependentUpon>
+    <EmbeddedResource Include="CallBackForm.resx">
+      <DependentUpon>CallBackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoachForm.resx">
+      <DependentUpon>CoachForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HallForm.resx">
+      <DependentUpon>HallForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LessonsForm.resx">
+      <DependentUpon>LessonsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -97,6 +124,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FitnessCenter.BLL.Interface\FitnessCenter.BLL.Interface.csproj">
+      <Project>{5179E574-5FDE-4742-8D59-FFF8754FC605}</Project>
+      <Name>FitnessCenter.BLL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FitnessCenter.BLL\FitnessCenter.BLL.csproj">
+      <Project>{eb4b8d07-bc91-465a-b971-ed2b736f7a9b}</Project>
+      <Name>FitnessCenter.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FitnessCenter.Common\FitnessCenter.Ioc.csproj">
+      <Project>{B1E132FB-DDA1-425B-8D02-D41A3D91BF69}</Project>
+      <Name>FitnessCenter.Ioc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FitnessCenter.Entities\FitnessCenter.Entities.csproj">
+      <Project>{C9EE2464-548E-4179-8B3E-00C55D07CBB5}</Project>
+      <Name>FitnessCenter.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

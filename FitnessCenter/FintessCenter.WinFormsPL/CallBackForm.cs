@@ -7,20 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static FintessCenter.WinFormsPL.MainMenu;
 
 namespace FintessCenter.WinFormsPL
 {
-    public partial class CoachForm : Form
+    public partial class CallBackForm : Form
     {
-        public CoachForm()
+        public string ErrorMessage 
+        {   
+            set { textBoxMessage.Text = value; }
+        }
+        public CallBackForm()
         {
             InitializeComponent();
-        }
-
-        private void CoachForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

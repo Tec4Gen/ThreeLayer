@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static FintessCenter.WinFormsPL.MainMenu;
 
 namespace FintessCenter.WinFormsPL
 {
-    public partial class CoachForm : Form
+    public partial class HallForm : Form
     {
-        public CoachForm()
+        public HallForm()
         {
             InitializeComponent();
-        }
-
-        private void CoachForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

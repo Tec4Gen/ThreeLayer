@@ -7,32 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FintessCenter.WinFormsPL;
+using FitnessCenter.BLL.Interface;
+using FitnessCenter.Common;
+using FitnessCenter.Entities;
+using FintessCenter.WinFormsPL;
+using static FintessCenter.WinFormsPL.MainMenu;
 
 namespace FintessCenter.WinFormsPL
 {
     public partial class ClientForm : Form
     {
+        private IClientLogic cleintlogic = DependenciesResolver.ClientLogic;
+
+        GridClient _gridClient;
         public ClientForm()
         {
             InitializeComponent();
+           
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public ClientForm(GridClient gridclient)
         {
-
+            this._gridClient = gridclient;
+            InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void btnGetAllClient_Click(object sender, EventArgs e)
         {
+            var ClientGetDataBase = cleintlogic.GetAll();
+        
+            if (ClientGetDataBase.Count() > 0)
+            {
+                MainMenu mainmenuClientGrid = new MainMenu();
+                _gridClient(ClientGetDataBase);
+            }
+            else 
+            {
+                CallBackForm callbackMessage = new CallBackForm();
+                callbackMessage.Text = "Клиентов нет";
+                callbackMessage.Show();
+            }
 
+                   
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void ClientForm_Load(object sender, EventArgs e)
         {
 
         }
