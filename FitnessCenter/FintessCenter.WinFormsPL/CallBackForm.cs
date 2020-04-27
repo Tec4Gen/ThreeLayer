@@ -20,5 +20,10 @@ namespace FintessCenter.WinFormsPL
         {
             InitializeComponent();
         }
+
+        private void CallBackForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

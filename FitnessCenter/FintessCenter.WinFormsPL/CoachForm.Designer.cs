@@ -87,17 +87,18 @@
             // 
             this.textBoxAddPhoneCoach.Location = new System.Drawing.Point(506, 171);
             this.textBoxAddPhoneCoach.Name = "textBoxAddPhoneCoach";
-            this.textBoxAddPhoneCoach.Size = new System.Drawing.Size(60, 20);
+            this.textBoxAddPhoneCoach.Size = new System.Drawing.Size(76, 20);
             this.textBoxAddPhoneCoach.TabIndex = 35;
             // 
             // lableAddPhoneCoach
             // 
             this.lableAddPhoneCoach.AutoSize = true;
-            this.lableAddPhoneCoach.Location = new System.Drawing.Point(506, 155);
+            this.lableAddPhoneCoach.Location = new System.Drawing.Point(503, 155);
             this.lableAddPhoneCoach.Name = "lableAddPhoneCoach";
-            this.lableAddPhoneCoach.Size = new System.Drawing.Size(60, 13);
+            this.lableAddPhoneCoach.Size = new System.Drawing.Size(93, 13);
             this.lableAddPhoneCoach.TabIndex = 32;
-            this.lableAddPhoneCoach.Text = "Id тренера";
+            this.lableAddPhoneCoach.Text = "Номер телефона";
+            this.lableAddPhoneCoach.Click += new System.EventHandler(this.lableAddPhoneCoach_Click);
             // 
             // lableAddFirstName
             // 
@@ -131,6 +132,7 @@
             this.btnGetByLastNameCoach.TabIndex = 26;
             this.btnGetByLastNameCoach.Text = "Найти по фамилии";
             this.btnGetByLastNameCoach.UseVisualStyleBackColor = true;
+            this.btnGetByLastNameCoach.Click += new System.EventHandler(this.btnGetByLastNameCoach_Click);
             // 
             // btnDeleteCoach
             // 
@@ -140,6 +142,7 @@
             this.btnDeleteCoach.TabIndex = 25;
             this.btnDeleteCoach.Text = "Удалить тренера";
             this.btnDeleteCoach.UseVisualStyleBackColor = true;
+            this.btnDeleteCoach.Click += new System.EventHandler(this.btnDeleteCoach_Click);
             // 
             // btnAddCoach
             // 
@@ -149,6 +152,7 @@
             this.btnAddCoach.TabIndex = 23;
             this.btnAddCoach.Text = "Добавить тренера";
             this.btnAddCoach.UseVisualStyleBackColor = true;
+            this.btnAddCoach.Click += new System.EventHandler(this.btnAddCoach_Click);
             // 
             // btnGetAllCoach
             // 
@@ -158,6 +162,7 @@
             this.btnGetAllCoach.TabIndex = 22;
             this.btnGetAllCoach.Text = "Получить всех";
             this.btnGetAllCoach.UseVisualStyleBackColor = true;
+            this.btnGetAllCoach.Click += new System.EventHandler(this.btnGetAllCoach_Click);
             // 
             // btnGetByPhoneCoach
             // 
@@ -167,6 +172,7 @@
             this.btnGetByPhoneCoach.TabIndex = 42;
             this.btnGetByPhoneCoach.Text = "Найти по номеру ";
             this.btnGetByPhoneCoach.UseVisualStyleBackColor = true;
+            this.btnGetByPhoneCoach.Click += new System.EventHandler(this.btnGetByPhoneCoach_Click);
             // 
             // textBoxGetByPhoneCoach
             // 

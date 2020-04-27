@@ -43,7 +43,7 @@
             this.TextBoxUpdateSubNum = new System.Windows.Forms.TextBox();
             this.lableUpdateSubNum = new System.Windows.Forms.Label();
             this.textBoxAddIdCoach = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBoxUpdateIDCoach = new System.Windows.Forms.TextBox();
             this.lableUpdateIDCoach = new System.Windows.Forms.Label();
             this.textBoxDeleteSubNum = new System.Windows.Forms.TextBox();
             this.labelDeleteSubNum = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.btnAddClient.TabIndex = 1;
             this.btnAddClient.Text = "Добавить клиента";
             this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
             // btnUpdateCoach
             // 
@@ -78,6 +79,7 @@
             this.btnUpdateCoach.TabIndex = 2;
             this.btnUpdateCoach.Text = "Обновить тренера";
             this.btnUpdateCoach.UseVisualStyleBackColor = true;
+            this.btnUpdateCoach.Click += new System.EventHandler(this.btnUpdateCoach_Click);
             // 
             // btnDeleteClient
             // 
@@ -87,6 +89,7 @@
             this.btnDeleteClient.TabIndex = 3;
             this.btnDeleteClient.Text = "Удалить клиента";
             this.btnDeleteClient.UseVisualStyleBackColor = true;
+            this.btnDeleteClient.Click += new System.EventHandler(this.btnDeleteClient_Click);
             // 
             // btnGetByLastNameClient
             // 
@@ -96,6 +99,7 @@
             this.btnGetByLastNameClient.TabIndex = 4;
             this.btnGetByLastNameClient.Text = "Найти по фамилии";
             this.btnGetByLastNameClient.UseVisualStyleBackColor = true;
+            this.btnGetByLastNameClient.Click += new System.EventHandler(this.btnGetByLastNameClient_Click);
             // 
             // textBoxAddLastNameClient
             // 
@@ -179,12 +183,12 @@
             this.textBoxAddIdCoach.Size = new System.Drawing.Size(60, 20);
             this.textBoxAddIdCoach.TabIndex = 15;
             // 
-            // textBox1
+            // TextBoxUpdateIDCoach
             // 
-            this.textBox1.Location = new System.Drawing.Point(412, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(60, 20);
-            this.textBox1.TabIndex = 16;
+            this.TextBoxUpdateIDCoach.Location = new System.Drawing.Point(412, 125);
+            this.TextBoxUpdateIDCoach.Name = "TextBoxUpdateIDCoach";
+            this.TextBoxUpdateIDCoach.Size = new System.Drawing.Size(60, 20);
+            this.TextBoxUpdateIDCoach.TabIndex = 16;
             // 
             // lableUpdateIDCoach
             // 
@@ -239,7 +243,7 @@
             this.Controls.Add(this.labelDeleteSubNum);
             this.Controls.Add(this.textBoxDeleteSubNum);
             this.Controls.Add(this.lableUpdateIDCoach);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBoxUpdateIDCoach);
             this.Controls.Add(this.textBoxAddIdCoach);
             this.Controls.Add(this.lableUpdateSubNum);
             this.Controls.Add(this.TextBoxUpdateSubNum);
@@ -282,7 +286,7 @@
         private System.Windows.Forms.TextBox TextBoxUpdateSubNum;
         private System.Windows.Forms.Label lableUpdateSubNum;
         private System.Windows.Forms.TextBox textBoxAddIdCoach;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBoxUpdateIDCoach;
         private System.Windows.Forms.Label lableUpdateIDCoach;
         private System.Windows.Forms.TextBox textBoxDeleteSubNum;
         private System.Windows.Forms.Label labelDeleteSubNum;

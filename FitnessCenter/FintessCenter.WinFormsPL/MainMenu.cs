@@ -14,23 +14,52 @@ namespace FintessCenter.WinFormsPL
     public partial class MainMenu : Form
     {
         public delegate void GridClient(IEnumerable<Client> clients);
+        public delegate void GridCoach(IEnumerable<Coach> coachs);
+        public delegate void GridCoachShow(Coach coachs);
+
         public void GridViewClient(IEnumerable<Client> clients)
         {
             dataGridViewClient.Rows.Clear();
             foreach (var item in clients)
             {
 
-                dataGridViewClient.Rows.Add(item.Id.ToString(),
-                                            item.LastName.ToString(),
-                                            item.FirstName.ToString(),
-                                            item.LastName.ToString(),
-                                            item.MiddleName.ToString(),
-                                            item.SubscriptionNumber.ToString(),
-                                            item.IDCoach.ToString());
+                dataGridViewClient.Rows.Add(item.Id,
+                                            item.LastName,
+                                            item.FirstName,
+                                            item.MiddleName,
+                                            item.SubscriptionNumber,
+                                            item.IDCoach);
 
             }
 
         }
+
+        public void GridViewCoach(IEnumerable<Coach> coachs)
+        {
+            dataGridViewCoach.Rows.Clear();
+            foreach (var item in coachs)
+            {
+
+                dataGridViewCoach.Rows.Add(item.Id,
+                                            item.LastName,
+                                            item.FirstName,
+                                            item.MiddleName,
+                                            item.Phone);
+            }
+
+        }
+
+        public void GridViewShowCoach(Coach coachs)
+        {
+            dataGridViewCoach.Rows.Clear();
+
+            dataGridViewCoach.Rows.Add(coachs.Id,
+                                        coachs.LastName,
+                                        coachs.FirstName,
+                                        coachs.MiddleName,
+                                        coachs.Phone);
+        }
+
         public MainMenu()
         {
             InitializeComponent();
@@ -57,7 +86,10 @@ namespace FintessCenter.WinFormsPL
 
         private void btnCoach_Click(object sender, EventArgs e)
         {
-            CoachForm coachform = new CoachForm();
+            GridCoach gridcoach = GridViewCoach;
+            GridCoachShow gridcoachshow = GridViewShowCoach;
+            CoachForm coachform = new CoachForm(gridcoach, gridcoachshow);
+            coachform.Owner = this;
             coachform.Show();
             dataGridViewHall.Visible = false;
             dataGridViewLessons.Visible = false;
