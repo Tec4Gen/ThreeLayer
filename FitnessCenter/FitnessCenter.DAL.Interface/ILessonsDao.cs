@@ -13,7 +13,7 @@ namespace FitnessCenter.DAL.Interface
 
         Lesson Delete(int id);
 
-        IEnumerable<Lesson> GetById(int id);
+        Lesson GetById(int id);
 
         IEnumerable<Lesson> GetAll();
 

@@ -39,15 +39,10 @@ ELSE
 	END
 IF
 (
-	((LEN(@FirstName) < 2) OR (LEN(@FirstName) < 2) OR (LEN(@MiddleName) < 2))
-	OR
-	((LEN(@FirstName) > 30) OR (LEN(@FirstName) > 30) OR (LEN(@MiddleName) > 30))
+	((LEN(@FirstName) > 2) AND (LEN(@LastName) > 2) AND (LEN(@MiddleName) > 2))
+	AND
+	((LEN(@FirstName) < 30) AND (LEN(@LastName) < 30) AND (LEN(@MiddleName) < 30))
 )
-BEGIN
-	PRINT 'ФИО не должны быть меньше 2 символов и больше 30'
-	RETURN
-END	
-ELSE 
 BEGIN
 	DECLARE @IdAddClient INT
 
@@ -57,10 +52,8 @@ BEGIN
 		WHERE (@IDCoach = ID)
 	)
 	BEGIN
-		PRINT @ChekCoach
 		SET @ChekCoach = 1
 	END
-
 	IF (@ChekCoach = 1)
 	BEGIN
 		PRINT 'Клиент добавлен с тренером'
@@ -73,7 +66,7 @@ BEGIN
 		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)		
-		PRINT 'Клиент добавлен его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
+		PRINT ' его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
 		RETURN
 	END 
 
@@ -91,14 +84,18 @@ BEGIN
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
 				
-		PRINT 'Клиент добавлен его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
+		PRINT ' его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
 		RETURN
 	END
 
 END	
+	
+ELSE 
+BEGIN
+	PRINT 'ФИО не должны быть меньше 2 символов и больше 30'
+	RETURN
+END
 END	
-
-
 GO
 
 
@@ -176,6 +173,7 @@ IF
 )
 	BEGIN
 		PRINT 'Название хола не может быть меньше 2 или же больше 20 символов'
+		RETURN
 	END
 ELSE IF((LEN(@Description) > 150))
 	BEGIN
@@ -187,6 +185,7 @@ ELSE
 	VALUES (@NameHall,@Description)
 		PRINT 'Зал добавлен его ID:' + CAST(IDENT_CURRENT('Hall') as VARCHAR) + char(10) +'Название:'+ CAST(@NameHall as NVARCHAR);
 END
+
 GO
 
 ---------------------TriggerByLessons--------------------------------
@@ -216,7 +215,7 @@ BEGIN
 END
 ELSE 
 BEGIN
-	SELECT 'У клиента нет тренера' AS CallBackMessage
+	PRINT 'У клиента нет тренера'
 	RETURN
 END
 

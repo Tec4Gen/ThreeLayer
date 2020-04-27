@@ -50,6 +50,7 @@
             this.btnGetAllHall.TabIndex = 1;
             this.btnGetAllHall.Text = "Получить все залы";
             this.btnGetAllHall.UseVisualStyleBackColor = true;
+            this.btnGetAllHall.Click += new System.EventHandler(this.btnGetAllHall_Click);
             // 
             // btnGetByHallName
             // 
@@ -59,6 +60,7 @@
             this.btnGetByHallName.TabIndex = 5;
             this.btnGetByHallName.Text = "Найти по названию";
             this.btnGetByHallName.UseVisualStyleBackColor = true;
+            this.btnGetByHallName.Click += new System.EventHandler(this.btnGetByHallName_Click);
             // 
             // btnDeleteHallName
             // 
@@ -68,6 +70,7 @@
             this.btnDeleteHallName.TabIndex = 22;
             this.btnDeleteHallName.Text = "Удалить зал";
             this.btnDeleteHallName.UseVisualStyleBackColor = true;
+            this.btnDeleteHallName.Click += new System.EventHandler(this.btnDeleteHallName_Click);
             // 
             // btnAddHall
             // 
@@ -77,6 +80,7 @@
             this.btnAddHall.TabIndex = 23;
             this.btnAddHall.Text = "Добавить зал";
             this.btnAddHall.UseVisualStyleBackColor = true;
+            this.btnAddHall.Click += new System.EventHandler(this.btnAddHall_Click);
             // 
             // textBoxAddNameHall
             // 
@@ -116,13 +120,13 @@
             // 
             this.textBoxNameHall.Location = new System.Drawing.Point(192, 87);
             this.textBoxNameHall.Name = "textBoxNameHall";
-            this.textBoxNameHall.Size = new System.Drawing.Size(60, 20);
+            this.textBoxNameHall.Size = new System.Drawing.Size(86, 20);
             this.textBoxNameHall.TabIndex = 36;
             // 
             // LastNameCoach
             // 
             this.LastNameCoach.AutoSize = true;
-            this.LastNameCoach.Location = new System.Drawing.Point(260, 90);
+            this.LastNameCoach.Location = new System.Drawing.Point(284, 90);
             this.LastNameCoach.Name = "LastNameCoach";
             this.LastNameCoach.Size = new System.Drawing.Size(84, 13);
             this.LastNameCoach.TabIndex = 42;
@@ -132,13 +136,13 @@
             // 
             this.textBoxGetByNameHall.Location = new System.Drawing.Point(192, 52);
             this.textBoxGetByNameHall.Name = "textBoxGetByNameHall";
-            this.textBoxGetByNameHall.Size = new System.Drawing.Size(60, 20);
+            this.textBoxGetByNameHall.Size = new System.Drawing.Size(86, 20);
             this.textBoxGetByNameHall.TabIndex = 43;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(260, 55);
+            this.label2.Location = new System.Drawing.Point(284, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 44;

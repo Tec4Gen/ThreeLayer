@@ -98,7 +98,7 @@
             this.lableAddPhoneCoach.Size = new System.Drawing.Size(93, 13);
             this.lableAddPhoneCoach.TabIndex = 32;
             this.lableAddPhoneCoach.Text = "Номер телефона";
-            this.lableAddPhoneCoach.Click += new System.EventHandler(this.lableAddPhoneCoach_Click);
+          
             // 
             // lableAddFirstName
             // 

@@ -38,6 +38,7 @@
             this.textBoxMessage.Location = new System.Drawing.Point(0, 0);
             this.textBoxMessage.Multiline = true;
             this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.ReadOnly = true;
             this.textBoxMessage.Size = new System.Drawing.Size(343, 145);
             this.textBoxMessage.TabIndex = 0;
             this.textBoxMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

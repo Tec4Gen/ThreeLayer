@@ -67,7 +67,7 @@ namespace FitnessCenter
             return _lessonsDao.GetAllLessonBySubNumClient(idclient);
         }
 
-        public IEnumerable<Lesson> GetById(int id)
+        public Lesson GetById(int id)
         {
             return _lessonsDao.GetById(id);
         }

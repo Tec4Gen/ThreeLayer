@@ -445,7 +445,11 @@ CREATE PROCEDURE [dbo].[Sp_EmploymentHallByDate]
 	@Date DATETIME2,
 	@HallId INT
 AS
-
+IF NOT EXISTS (SELECT ID FROM Hall WHERE @HallId = ID)
+BEGIN
+	PRINT 'Такого зала нет'
+	RETURN
+END
 SELECT IDLessons, IDClient, IDHall,ClassTime
 		FROM Lessons 
 		WHERE ((CAST(ClassTime AS DATE) = @Date) AND @HallId = IDHall)
@@ -455,6 +459,11 @@ CREATE PROCEDURE [dbo].[Sp_EmploymentHallByDateTime]
 	@Date DATETIME2,
 	@HallId INT
 AS
+IF NOT EXISTS (SELECT ID FROM Hall WHERE @HallId = ID)
+BEGIN
+	PRINT 'Такого зала нет'
+	RETURN
+END
 
 SELECT IDLessons, IDClient, IDHall,ClassTime
 		FROM Lessons 
@@ -476,6 +485,6 @@ AS
 
 SELECT IDLessons, IDClient, IDHall,ClassTime
 		FROM Lessons 
-		WHERE (ABS(DATEDIFF(MINUTE,@Date,ClassTime)) <= 60)
+		WHERE (ABS(DATEDIFF(MINUTE,@Date,ClassTime)) < 60)
 GO
 

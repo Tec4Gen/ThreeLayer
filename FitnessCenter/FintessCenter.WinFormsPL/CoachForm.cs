@@ -144,10 +144,5 @@ namespace FintessCenter.WinFormsPL
                 callbackMessage.Show();
             }
         }
-
-        private void lableAddPhoneCoach_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

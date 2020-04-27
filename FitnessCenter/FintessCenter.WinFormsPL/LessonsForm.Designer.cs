@@ -58,6 +58,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimeAddLessonDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimeAddLessonTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeEmploymentIdHallByDate = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimeEmploymentIdHallByDate_ = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGetAllLessons
@@ -68,6 +72,7 @@
             this.btnGetAllLessons.TabIndex = 1;
             this.btnGetAllLessons.Text = "Посмотреть занятия";
             this.btnGetAllLessons.UseVisualStyleBackColor = true;
+            this.btnGetAllLessons.Click += new System.EventHandler(this.btnGetAllLessons_Click);
             // 
             // btnAlllessonByPhoneCoach
             // 
@@ -77,6 +82,7 @@
             this.btnAlllessonByPhoneCoach.TabIndex = 2;
             this.btnAlllessonByPhoneCoach.Text = "Посмотреть занятия тренера";
             this.btnAlllessonByPhoneCoach.UseVisualStyleBackColor = true;
+            this.btnAlllessonByPhoneCoach.Click += new System.EventHandler(this.btnAlllessonByPhoneCoach_Click);
             // 
             // btnGetAllLessonSubNumClient
             // 
@@ -86,6 +92,7 @@
             this.btnGetAllLessonSubNumClient.TabIndex = 3;
             this.btnGetAllLessonSubNumClient.Text = "Посмотреть занятия клиента";
             this.btnGetAllLessonSubNumClient.UseVisualStyleBackColor = true;
+            this.btnGetAllLessonSubNumClient.Click += new System.EventHandler(this.btnGetAllLessonSubNumClient_Click);
             // 
             // btnGetAllLessonsByHallName
             // 
@@ -95,6 +102,7 @@
             this.btnGetAllLessonsByHallName.TabIndex = 4;
             this.btnGetAllLessonsByHallName.Text = "Посмотреть занятия в зале";
             this.btnGetAllLessonsByHallName.UseVisualStyleBackColor = true;
+            this.btnGetAllLessonsByHallName.Click += new System.EventHandler(this.btnGetAllLessonsByHallName_Click);
             // 
             // btnGetLessonById
             // 
@@ -104,6 +112,7 @@
             this.btnGetLessonById.TabIndex = 5;
             this.btnGetLessonById.Text = "Найти занятие по id";
             this.btnGetLessonById.UseVisualStyleBackColor = true;
+            this.btnGetLessonById.Click += new System.EventHandler(this.btnGetLessonById_Click);
             // 
             // btnEmploymentAllHallByDate
             // 
@@ -113,6 +122,7 @@
             this.btnEmploymentAllHallByDate.TabIndex = 6;
             this.btnEmploymentAllHallByDate.Text = "Занятость залов по дате";
             this.btnEmploymentAllHallByDate.UseVisualStyleBackColor = true;
+            this.btnEmploymentAllHallByDate.Click += new System.EventHandler(this.btnEmploymentAllHallByDate_Click);
             // 
             // btnEmploymentAllHallByDateTime
             // 
@@ -122,6 +132,7 @@
             this.btnEmploymentAllHallByDateTime.TabIndex = 8;
             this.btnEmploymentAllHallByDateTime.Text = "Занятость залов по дате и времени";
             this.btnEmploymentAllHallByDateTime.UseVisualStyleBackColor = true;
+            this.btnEmploymentAllHallByDateTime.Click += new System.EventHandler(this.btnEmploymentAllHallByDateTime_Click);
             // 
             // btnEmploymentHallByDate
             // 
@@ -131,6 +142,7 @@
             this.btnEmploymentHallByDate.TabIndex = 9;
             this.btnEmploymentHallByDate.Text = "Занятость зала по дате";
             this.btnEmploymentHallByDate.UseVisualStyleBackColor = true;
+            this.btnEmploymentHallByDate.Click += new System.EventHandler(this.btnEmploymentHallByDate_Click);
             // 
             // btnEmploymentHallByDateTime
             // 
@@ -140,6 +152,7 @@
             this.btnEmploymentHallByDateTime.TabIndex = 10;
             this.btnEmploymentHallByDateTime.Text = "Занятость зала по дате и времени";
             this.btnEmploymentHallByDateTime.UseVisualStyleBackColor = true;
+            this.btnEmploymentHallByDateTime.Click += new System.EventHandler(this.btnEmploymentHallByDateTime_Click);
             // 
             // btnAddLesson
             // 
@@ -149,6 +162,7 @@
             this.btnAddLesson.TabIndex = 11;
             this.btnAddLesson.Text = "Добавить занятие";
             this.btnAddLesson.UseVisualStyleBackColor = true;
+            this.btnAddLesson.Click += new System.EventHandler(this.btnAddLesson_Click);
             // 
             // textBoxIdLessons
             // 
@@ -323,11 +337,47 @@
             this.dateTimeAddLessonTime.TabIndex = 39;
             this.dateTimeAddLessonTime.Value = new System.DateTime(2020, 4, 26, 15, 57, 15, 0);
             // 
+            // dateTimeEmploymentIdHallByDate
+            // 
+            this.dateTimeEmploymentIdHallByDate.Location = new System.Drawing.Point(270, 306);
+            this.dateTimeEmploymentIdHallByDate.Name = "dateTimeEmploymentIdHallByDate";
+            this.dateTimeEmploymentIdHallByDate.Size = new System.Drawing.Size(60, 20);
+            this.dateTimeEmploymentIdHallByDate.TabIndex = 40;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(336, 309);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "Id зала";
+            // 
+            // dateTimeEmploymentIdHallByDate_
+            // 
+            this.dateTimeEmploymentIdHallByDate_.Location = new System.Drawing.Point(361, 348);
+            this.dateTimeEmploymentIdHallByDate_.Name = "dateTimeEmploymentIdHallByDate_";
+            this.dateTimeEmploymentIdHallByDate_.Size = new System.Drawing.Size(60, 20);
+            this.dateTimeEmploymentIdHallByDate_.TabIndex = 42;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(427, 351);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Id зала";
+            // 
             // LessonsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 479);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dateTimeEmploymentIdHallByDate_);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dateTimeEmploymentIdHallByDate);
             this.Controls.Add(this.dateTimeAddLessonTime);
             this.Controls.Add(this.dateTimeAddLessonDate);
             this.Controls.Add(this.label5);
@@ -397,5 +447,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimeAddLessonDate;
         private System.Windows.Forms.DateTimePicker dateTimeAddLessonTime;
+        private System.Windows.Forms.TextBox dateTimeEmploymentIdHallByDate;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox dateTimeEmploymentIdHallByDate_;
+        private System.Windows.Forms.Label label7;
     }
 }

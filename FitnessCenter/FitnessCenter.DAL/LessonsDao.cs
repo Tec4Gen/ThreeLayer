@@ -113,6 +113,49 @@ namespace FitnessCenter.DAL
             }
         }
 
+        public Lesson GetById(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                Lesson lessons;
+
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = "dbo.Sp_GetAllLessonsById";
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParameterId = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@IDLesson",
+                    Value = id,
+                    Direction = ParameterDirection.Input,
+                };
+                command.Parameters.Add(ParameterId);
+
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    lessons = new Lesson()
+                    {
+                        Id = (int)reader["IDLessons"],
+                        IdClinet = (int)reader["IDClient"],
+                        IdHall = (int)reader["IDHall"],
+                        Time = (DateTime)reader["ClassTime"],
+                    };
+                }
+                else
+                {
+                    return null;
+                }
+
+                return lessons;
+
+            }
+        }
+
         public IEnumerable<Lesson> GetAll() 
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -253,42 +296,7 @@ namespace FitnessCenter.DAL
             }
         }
 
-        public IEnumerable<Lesson> GetById(int id)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                List<Lesson> lessons = new List<Lesson>();
 
-                SqlCommand command = connection.CreateCommand();
-                command.CommandText = "dbo.Sp_GetAllLessonsById";
-                command.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParameterId = new SqlParameter()
-                {
-                    DbType = DbType.Int32,
-                    ParameterName = "@IDLesson",
-                    Value = id,
-                    Direction = ParameterDirection.Input,
-                };
-                command.Parameters.Add(ParameterId);
-
-                connection.Open();
-
-                var reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    lessons.Add(new Lesson()
-                    {
-                        Id = (int)reader["IDLessons"],
-                        IdClinet = (int)reader["IDClient"],
-                        IdHall = (int)reader["IDHall"],
-                        Time = (DateTime)reader["ClassTime"],
-                    });
-                }
-                return lessons;
-            }
-        }
         //Занятости всех залов по времени  
         public IEnumerable<Lesson> EmploymentAllHallByDate(DateTime date)
         {
