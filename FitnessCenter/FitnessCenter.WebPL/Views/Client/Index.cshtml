@@ -1,24 +1,25 @@
 ﻿@model IEnumerable<FitnessCenter.Entities.Client>
-    @{
-        ViewBag.Title = "Index";
-    }
+@{
+    ViewBag.Title = "Index";
+}
 
-    <h2>Клиенты</h2>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>MiddelName</th>
-                <th>SubscriptionNumber</th>
-                <th>IdCoach</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var client in Model)
-            {
+<h2>Клиенты</h2>
+<button type="button" class="btn btn-danger">@Html.ActionLink("Add", "Add")</button>
+<button type="button" class="btn btn-danger">@Html.ActionLink("FindLastName", "FindLastName")</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>MiddelName</th>
+            <th>SubscriptionNumber</th>
+            <th>IdCoach</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
             <tr>
                 <th>@client.Id</th>
                 <th>@client.FirstName</th>
@@ -26,7 +27,10 @@
                 <th>@client.MiddleName</th>
                 <th>@client.SubscriptionNumber</th>
                 <th>@client.IDCoach</th>
+
+                <th>@Html.ActionLink("Update", "Update", new { SubscriptionNumber = client.SubscriptionNumber, IdCoach = client.IDCoach as int? })</th>
+                <th>@Html.ActionLink("Delete", "Delete", new { SubscriptionNumber = client.SubscriptionNumber })</th>
             </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>

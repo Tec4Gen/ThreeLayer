@@ -81,7 +81,7 @@ namespace FitnessCenter.DAL
             }
         }
        
-        public string Update(int subnumber, int idcoach)
+        public string Update(int subnumber, int? idcoach)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

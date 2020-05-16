@@ -18,7 +18,7 @@ namespace FitnessCenter
             return _clientdao.Add(item);
         }
 
-        public string Update(int subnumber, int idcoach)
+        public string Update(int subnumber, int? idcoach)
         {
             return _clientdao.Update(subnumber,idcoach);
         }

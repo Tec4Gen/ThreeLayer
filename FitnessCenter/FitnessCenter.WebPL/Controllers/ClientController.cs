@@ -2,6 +2,7 @@
 using FitnessCenter.Entities;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Web.Mvc;
 using DependencyResolver = FitnessCenter.Common.DependenciesResolver;
 
@@ -9,13 +10,11 @@ namespace FitnessCenter.WebPL.Controllers
 {
     public class ClientController : Controller
     {
-        IClientLogic _clientlogic;
+        IClientLogic _clientlogic = DependencyResolver.ClientLogic;
         // GET: Client
         [HttpGet]
         public ActionResult Index()
         {
-            _clientlogic = DependencyResolver.ClientLogic;
-
             return View("Index", _clientlogic.GetAll());
         }
 
@@ -27,46 +26,39 @@ namespace FitnessCenter.WebPL.Controllers
         [HttpPost]
         public ActionResult Add(Client client)
         {
-            _clientlogic = DependencyResolver.ClientLogic;
             _clientlogic.Add(client);
             return RedirectToAction("Index");
         }
+
         [HttpGet]
-        public ActionResult Update()
-        {
-            return View();
-        }
-        [HttpPost]
         public ActionResult Update(Client client)
         {
-            _clientlogic = DependencyResolver.ClientLogic;
-            _clientlogic.Update(client.SubscriptionNumber, (int)client.IDCoach);
+            return View(client);
+        }
+
+        [HttpPost]
+        public ActionResult Update(int SubscriptionNumber, int? IdCoach)
+        {
+            _clientlogic.Update(SubscriptionNumber, IdCoach);
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult Delete()
+        public ActionResult Delete(int SubscriptionNumber)
         {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Delete(Client client)
-        {
-            _clientlogic = DependencyResolver.ClientLogic;
-            _clientlogic.Delete(client.SubscriptionNumber);
+            _clientlogic.Delete(SubscriptionNumber);
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public ActionResult FindLastName()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult FindlastName(Client client)
+        public ActionResult FindlastName(string lastname)
         {
-            _clientlogic = DependencyResolver.ClientLogic;
-            var clients = _clientlogic.GetByLastName(client.LastName);
+            var clients = _clientlogic.GetByLastName(lastname);
             return View("Index", clients);
         }
-
     }
 }

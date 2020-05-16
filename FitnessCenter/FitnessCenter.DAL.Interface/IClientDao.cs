@@ -7,7 +7,7 @@ namespace FitnessCenter.DAL.Interface
     {
         string Add(Client item);
 
-        string Update(int subnumber, int idcoach);
+        string Update(int subnumber, int? idcoach);
 
         Client Delete(int subnumber);
 

@@ -102,7 +102,7 @@ GO
 
 CREATE PROCEDURE [dbo].[Sp_UpdateCoachByClient]
 	@SubscriptionNumber INT,
-	@IDCoach INT
+	@IDCoach INT = NULL
 AS
 BEGIN
 	IF EXISTS(SELECT ID,FirstName,LastName,Phone FROM Coach WHERE @IDCoach = ID)
