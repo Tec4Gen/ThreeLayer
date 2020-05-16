@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FitnessCenter.Entities.Hall>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Залы</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>NameHall</th>
+            <th>Description</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hall in Model)
+        {
+            <tr>
+                <th>@hall.Id</th>
+                <th>@hall.NameHall</th>
+                <th>@hall.Description</th>
+            </tr>
+        }
+    </tbody>
+</table>
+

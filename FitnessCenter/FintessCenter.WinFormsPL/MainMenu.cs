@@ -1,18 +1,14 @@
-﻿using FitnessCenter.Entities;
+﻿
+using FitnessCenter.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FintessCenter.WinFormsPL
 {
     public partial class MainMenu : Form
     {
+
         public delegate void GridClient(IEnumerable<Client> clients);
 
         public delegate void GridCoach(IEnumerable<Coach> coachs);
@@ -23,6 +19,7 @@ namespace FintessCenter.WinFormsPL
 
         public delegate void GridLessons(IEnumerable<Lesson> lessons);
         public delegate void GridLessonsShow(Lesson lesson);
+
         public void GridViewClient(IEnumerable<Client> clients)
         {
             dataGridViewClient.Rows.Clear();
@@ -169,6 +166,11 @@ namespace FintessCenter.WinFormsPL
             dataGridViewHall.Visible = false;
             dataGridViewClient.Visible = false;
             dataGridViewLessons.Visible = true;
+        }
+
+        private void dataGridViewLessons_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

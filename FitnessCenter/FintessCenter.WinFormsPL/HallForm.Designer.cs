@@ -167,6 +167,7 @@
             this.Controls.Add(this.btnGetAllHall);
             this.Name = "HallForm";
             this.Text = "HallForm";
+            this.Load += new System.EventHandler(this.HallForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

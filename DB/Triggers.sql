@@ -23,7 +23,7 @@ IF EXISTS (SELECT IDCoach FROM inserted WHERE IDCoach IS NOT NULL)
 	END
 ELSE 
 	BEGIN
-		PRINT 'Тренер отсуствует в записи , запись добавлена без тренера'
+		
 		SET @IDCoach = NULL
 		IF (SELECT COUNT(*) 
 				FROM Client 
@@ -34,6 +34,7 @@ ELSE
 		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
+		PRINT 'Тренер отсуствует в записи , запись добавлена без тренера'
 		PRINT 'Клиент добавлен его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
 		RETURN
 	END
@@ -56,7 +57,7 @@ BEGIN
 	END
 	IF (@ChekCoach = 1)
 	BEGIN
-		PRINT 'Клиент добавлен с тренером'
+		
 		IF (SELECT COUNT(*) 
 				FROM Client 
 				WHERE (SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client'))) = 1	
@@ -66,6 +67,7 @@ BEGIN
 		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)		
+		PRINT 'Клиент добавлен с тренером'
 		PRINT ' его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
 		RETURN
 	END 
@@ -73,7 +75,7 @@ BEGIN
 	ELSE IF (@ChekCoach = 0)
 	BEGIN
 		SET @IDCoach = NULL
-		PRINT 'Такого тренера нет, клиент добавлен без тренера'
+		
 			IF (SELECT COUNT(*) 
 				FROM Client 
 				WHERE SubscriptionNumber = @SubscriptionNumber + IDENT_CURRENT('Client')) = 1	
@@ -83,7 +85,7 @@ BEGIN
 		SET @SubscriptionNumber += IDENT_CURRENT('Client')
 		INSERT INTO Client(FirstName,LastName,MiddleName,SubscriptionNumber,IDCoach)
 		VALUES (@FirstName,@LastName,@MiddleName,@SubscriptionNumber,@IDCoach)
-				
+		PRINT 'Такого тренера нет, клиент добавлен без тренера'
 		PRINT ' его ID:' + CAST(IDENT_CURRENT('Client') as VARCHAR) + char(10) +'Номер абонимента:'+ CAST(@SubscriptionNumber as NVARCHAR);
 		RETURN
 	END

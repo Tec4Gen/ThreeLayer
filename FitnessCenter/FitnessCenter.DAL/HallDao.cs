@@ -15,7 +15,6 @@ namespace FitnessCenter.DAL
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["FitnessCenter"].ConnectionString;
 
-        /*И тут все тоже самое*/
         public string Add(Hall item)
         {
             using (SqlConnection connection =  new SqlConnection(_connectionString))

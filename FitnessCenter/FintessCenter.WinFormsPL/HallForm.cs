@@ -111,5 +111,10 @@ namespace FintessCenter.WinFormsPL
                 callbackMessage.Show();
             }
         }
+
+        private void HallForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

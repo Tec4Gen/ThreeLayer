@@ -152,10 +152,11 @@
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21,
             this.dataGridViewTextBoxColumn22});
-            this.dataGridViewLessons.Location = new System.Drawing.Point(1, 3);
+            this.dataGridViewLessons.Location = new System.Drawing.Point(3, 5);
             this.dataGridViewLessons.Name = "dataGridViewLessons";
             this.dataGridViewLessons.Size = new System.Drawing.Size(643, 455);
             this.dataGridViewLessons.TabIndex = 4;
+            this.dataGridViewLessons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLessons_CellContentClick);
             // 
             // dataGridViewTextBoxColumn19
             // 

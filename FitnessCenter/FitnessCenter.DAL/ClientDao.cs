@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
-using System;
 
 namespace FitnessCenter.DAL
 {
@@ -13,13 +12,6 @@ namespace FitnessCenter.DAL
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["FitnessCenter"].ConnectionString; 
 
-        /*
-        Функция Add возвращает результирующую строку, т.е ответ от базы что произошло, вставлось или нет, если какая то из проверок 
-        Например имя пользователя слишком короткое, оно вернет сответсвующее сообщение из базы
-        Если нет тренера, база об этом скажет, но пользователя добавит, т.к в базе предусмотренно поле NULL в атрибуте IDCoach
-        Поле так же можно обновлять.
-        Если не указан тренер при вставке то так же клиент добавиться, но без тренера
-        */
         public string Add(Client item)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -83,16 +75,12 @@ namespace FitnessCenter.DAL
                     messages.AppendLine(args.Message);
                 });
 
-
                 var reader = command.ExecuteNonQuery();
 
                 return messages.ToString();
             }
         }
-        /*
-        Функция Update возвращает результирующую строку, говорит что пошло не так, или же успешно меняет клиенту тренера, НО при 
-        том удаляет все его занятия, что бы не нарушить условия составления рассписания.
-        */
+       
         public string Update(int subnumber, int idcoach)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -134,6 +122,7 @@ namespace FitnessCenter.DAL
                 return messages.ToString();
             }
         }
+
         /*
         Функция Delete возвращает тип Delete если пользователь удалился то вернет информацию о удаленном тренере, если нет то вернеться null
 
@@ -275,9 +264,6 @@ namespace FitnessCenter.DAL
             }
         }
 
-        /*
-            Возвращает коллекцию, если ничего не вернулось вернеться пустая коллекция
-        */
         public IEnumerable<Client> GetByLastName(string lastname)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -346,7 +332,5 @@ namespace FitnessCenter.DAL
             }
             return Client;
         }
-
-
     }
 }

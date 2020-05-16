@@ -12,7 +12,6 @@ GO
 USE FitnessCenter
 GO
 
-
 CREATE TABLE dbo.Client
 	(
 	ID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -197,7 +196,8 @@ AS
 BEGIN
 	IF EXISTS(SELECT * FROM COACH WHERE @Number = Phone)
 	BEGIN
-		PRINT 'Тренер с таким номером уже существует'
+		PRINT 'Phone_dup'
+		--PRINT 'Тренер с таким номером уже существует'
 		RETURN
 	END
     INSERT INTO Coach(FirstName,LastName,MiddleName,Phone)
@@ -339,19 +339,19 @@ AS
 BEGIN
 	IF NOT EXISTS (SELECT * FROM Client WHERE @IdClient=ID)
 	BEGIN
-		PRINT 'Такого клиента нет'
+		PRINT 'No_such_client'
+		--PRINT 'Такого клиента нет'
 		RETURN
 	END
 	IF NOT EXISTS (SELECT * FROM Hall WHERE @IDHall=ID)
 	BEGIN
-		PRINT 'Такого зала нет'
+		PRINT 'No_such_hall'
+		--PRINT 'Такого зала нет'
 		RETURN
 	END
     INSERT INTO Lessons(IDClient,IDHall,ClassTime)
     VALUES (@IdClient,@IDHall,@Time)
 END
-
-
 GO
 
 CREATE PROCEDURE [dbo].[Sp_DeleteLesson]

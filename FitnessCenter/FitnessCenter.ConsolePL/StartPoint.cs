@@ -4,16 +4,6 @@ using System;
 
 namespace FitnessCenter.ConsolePL
 {
-
-    /*
-    Для начала запуска основной скрипт с БД, потом триггеры.
-
-    Строка подключения храниться в конфиге ---->PL--->AppConfig, подключяем базу, берем строку и вставляем ее в конфиг, вместо сзвездочек и старой строки
-    <add name ="FitnessCenter" connectionString ="***Data Source=DESKTOP-I2VSO11\MYEXPRESS;Initial Catalog=FitnessCenter;Integrated Security=True***"/>
-    Все можно запускать консольное приложение, если база подключена, то все отработает.
-
-    Фукционал логики работы DAL описана в кратце в dao классах
-     */
     class Program
     {
         static void Main(string[] args)
@@ -31,7 +21,6 @@ namespace FitnessCenter.ConsolePL
                 MiddleName = "Тарасов",
                 LastName = "Викторович",
             });
-            //Не добавиться, с базы придет что номер слишком короткий
             Console.WriteLine(NotAdd + Environment.NewLine);
 
             callbackmessage = coachLogic.Add(new Coach()
@@ -249,7 +238,7 @@ namespace FitnessCenter.ConsolePL
             callbackmessage = halllogic.Add(new Hall()
             {
                 NameHall = "Blue",
-                Description = @"GuluboiZal)"
+                Description = @"Синий зал"
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
@@ -263,7 +252,7 @@ namespace FitnessCenter.ConsolePL
             callbackmessage = halllogic.Add(new Hall()
             {
                 NameHall = "Purple",
-                Description = @"Не помню по моему фиолетовый",
+                Description = @"Фиолетовый зал",
             });
             Console.WriteLine(callbackmessage + Environment.NewLine);
 
@@ -444,7 +433,7 @@ namespace FitnessCenter.ConsolePL
             Console.WriteLine();
             //Все занятия тренеров
             les1 = Lessonsogic.GetAllLessonByPhoneCoach(9256545555);
-            Console.WriteLine("Занятия тренера с номером");
+            Console.WriteLine($"Занятия тренера с номером {9256545555}");
             foreach (var items in les1)
             {
                 Console.WriteLine($"{items.Id}|{items.IdClinet}|{items.IdHall}|{items.Time}");

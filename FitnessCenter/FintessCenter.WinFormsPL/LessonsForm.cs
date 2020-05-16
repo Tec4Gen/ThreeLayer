@@ -195,7 +195,7 @@ namespace FintessCenter.WinFormsPL
                 callbackMessage.Show();
             }
         }
-
+        
         private void btnEmploymentHallByDateTime_Click(object sender, EventArgs e)
         {
             if (int.TryParse(dateTimeEmploymentIdHallByDate_.Text, out int idhall) != false)

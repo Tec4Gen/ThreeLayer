@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace FintessCenter.WinFormsPL
 {
-    static class Program
+    static class MainM
     {
         /// <summary>
         /// The main entry point for the application.

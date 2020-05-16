@@ -38,3 +38,11 @@ C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.csproj.CopyComplete
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.exe
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\obj\Debug\FitnessCenter.ConsolePL.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.abstractions.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.assert.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.core.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.execution.desktop.dll
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.abstractions.xml
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.assert.xml
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.core.xml
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.ConsolePL\bin\Debug\xunit.execution.desktop.xml

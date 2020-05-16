@@ -12,9 +12,7 @@ namespace FitnessCenter.DAL
     public class CoachDao : ICoachDao
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["FitnessCenter"].ConnectionString;
-
-
-        /*Работает по тому же принципу что и ClientDao*/
+    
         public string Add(Coach item)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
