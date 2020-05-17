@@ -1,8 +1,5 @@
 ﻿using FitnessCenter.BLL.Interface;
 using FitnessCenter.Entities;
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Web.Mvc;
 using DependencyResolver = FitnessCenter.Common.DependenciesResolver;
 

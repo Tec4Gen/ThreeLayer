@@ -4,7 +4,9 @@
 }
 
 <h2>Тренеры</h2>
-
+<button type="button" class="btn btn-danger">@Html.ActionLink("Add", "Add")</button>
+<button type="button" class="btn btn-danger">@Html.ActionLink("FindLastName", "FindLastName")</button>
+<button type="button" class="btn btn-danger">@Html.ActionLink("FindByPhone", "FindByPhone")</button>
 <table class="table">
     <thead>
         <tr>
@@ -24,6 +26,7 @@
                 <th>@coach.LastName</th>
                 <th>@coach.MiddleName</th>
                 <th>@coach.Phone</th>
+                <th>@Html.ActionLink("Delete", "Delete", new { Phone = coach.Phone })</th>
             </tr>
         }
     </tbody>

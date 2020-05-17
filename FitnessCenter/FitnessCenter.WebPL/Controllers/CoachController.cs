@@ -29,6 +29,7 @@ namespace FitnessCenter.WebPL.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
+
         public ActionResult FindLastName()
         {
             return View();
@@ -40,18 +41,15 @@ namespace FitnessCenter.WebPL.Controllers
             var coachs = _coachlogic.GetByLastName(coach.LastName);
             return View("Index", coachs);
         }
+
         [HttpGet]
-        public ActionResult Delete()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Delete(Coach coach)
+        public ActionResult Delete(long Phone)
         {
             _coachlogic = DependenciesResolver.CoachLogic;
-            _coachlogic.Delete(coach.Phone);
+            _coachlogic.Delete(Phone);
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public ActionResult FindByPhone()
         {

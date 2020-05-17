@@ -175,7 +175,6 @@
     <Content Include="Views\Client\FindLastName.cshtml" />
     <Content Include="Views\Coach\Add.cshtml" />
     <Content Include="Views\Coach\FindLastName.cshtml" />
-    <Content Include="Views\Coach\Delete.cshtml" />
     <Content Include="Views\Coach\FindByPhone.cshtml" />
     <Content Include="Views\Hall\Add.cshtml" />
     <Content Include="Views\Hall\Delete.cshtml" />
