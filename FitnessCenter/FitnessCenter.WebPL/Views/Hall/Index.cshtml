@@ -4,14 +4,15 @@
 }
 
 <h2>Залы</h2>
-
+<button type="button" class="btn btn-danger">@Html.ActionLink("Add", "Add")</button>
+<button type="button" class="btn btn-danger">@Html.ActionLink("FindNameHall", "FindNameHall")</button>
 <table class="table">
     <thead>
         <tr>
             <th>Id</th>
             <th>NameHall</th>
             <th>Description</th>
-          
+
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
                 <th>@hall.Id</th>
                 <th>@hall.NameHall</th>
                 <th>@hall.Description</th>
+                <th>@Html.ActionLink("Delete", "Delete", new { NameHall = hall.NameHall })</th>
             </tr>
         }
     </tbody>

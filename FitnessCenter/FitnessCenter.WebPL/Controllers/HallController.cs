@@ -12,12 +12,11 @@ namespace FitnessCenter.WebPL.Controllers
 {
     public class HallController : Controller
     {
-        IHallLogic _halllogic;
+        IHallLogic _halllogic = DependenciesResolver.HallLogic;
         // GET: Hall
         [HttpGet]
         public ActionResult Index()
-        {
-            _halllogic = DependenciesResolver.HallLogic;
+        {    
             return View(_halllogic.GetAll());
         }
         [HttpGet]
@@ -28,21 +27,26 @@ namespace FitnessCenter.WebPL.Controllers
         [HttpPost]
         public ActionResult Add(Hall hall)
         {
-            _halllogic = DependenciesResolver.HallLogic;
             _halllogic.Add(hall);
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult Delete()
+        public ActionResult Delete(string NameHall)
+        {
+            _halllogic.Delete(NameHall);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult FindByNameHall()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Delete(Hall coach)
+        public ActionResult FindByNameHall(string NameHall)
         {
-            _halllogic = DependenciesResolver.HallLogic;
-            _halllogic.Delete(coach.NameHall);
-            return RedirectToAction("Index");
+            IEnumerable<Hall> hall = new List<Hall>() { _halllogic.GetByName(NameHall) };
+            return RedirectToAction("Index", hall);
         }
+
     }
 }

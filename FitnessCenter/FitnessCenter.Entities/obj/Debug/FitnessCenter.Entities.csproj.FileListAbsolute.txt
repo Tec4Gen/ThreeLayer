@@ -1,6 +1,6 @@
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Entities\bin\Debug\FitnessCenter.Entities.dll
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Entities\bin\Debug\FitnessCenter.Entities.pdb
-C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.csprojAssemblyReference.cache
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.csproj.CoreCompileInputs.cache
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.dll
 C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.pdb
+C:\Users\Neo\Desktop\ThreeLayer\FitnessCenter\FitnessCenter.Entities\obj\Debug\FitnessCenter.Entities.csprojAssemblyReference.cache

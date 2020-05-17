@@ -7,13 +7,11 @@ namespace FitnessCenter.WebPL.Controllers
 {
     public class CoachController : Controller
     {
-        ICoachLogic _coachlogic;
+        ICoachLogic _coachlogic = DependenciesResolver.CoachLogic;
         // GET: Coach
         [HttpGet]
         public ActionResult Index()
         {
-            _coachlogic = DependenciesResolver.CoachLogic;
-            
             return View(_coachlogic.GetAll());
         }
         [HttpGet]
@@ -24,7 +22,6 @@ namespace FitnessCenter.WebPL.Controllers
         [HttpPost]
         public ActionResult Add(Coach coach)
         {
-            _coachlogic = DependenciesResolver.CoachLogic;
             _coachlogic.Add(coach);
             return RedirectToAction("Index");
         }
@@ -37,7 +34,6 @@ namespace FitnessCenter.WebPL.Controllers
         [HttpPost]
         public ActionResult FindlastName(Coach coach)
         {
-            _coachlogic = DependenciesResolver.CoachLogic;
             var coachs = _coachlogic.GetByLastName(coach.LastName);
             return View("Index", coachs);
         }
@@ -45,7 +41,6 @@ namespace FitnessCenter.WebPL.Controllers
         [HttpGet]
         public ActionResult Delete(long Phone)
         {
-            _coachlogic = DependenciesResolver.CoachLogic;
             _coachlogic.Delete(Phone);
             return RedirectToAction("Index");
         }
@@ -58,7 +53,6 @@ namespace FitnessCenter.WebPL.Controllers
         [HttpPost]
         public ActionResult FindByPhone(Coach coach)
         {
-            _coachlogic = DependenciesResolver.CoachLogic;
             IEnumerable<Coach> coachs = new List<Coach>() { _coachlogic.GetByPhone(coach.Phone) };
             return View("Index", coachs);
         }
