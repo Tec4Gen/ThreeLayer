@@ -28,7 +28,7 @@
                 <th>@client.SubscriptionNumber</th>
                 <th>@client.IDCoach</th>
 
-                <th>@Html.ActionLink("Update", "Update", new { SubscriptionNumber = client.SubscriptionNumber, IdCoach = client.IDCoach as int? })</th>
+                <th>@Html.ActionLink("Update", "Update", new { id = client.Id })</th>
                 <th>@Html.ActionLink("Delete", "Delete", new { SubscriptionNumber = client.SubscriptionNumber })</th>
             </tr>
         }

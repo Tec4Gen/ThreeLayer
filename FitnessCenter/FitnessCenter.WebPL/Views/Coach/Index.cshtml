@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         @foreach (var coach in Model)
-        {
+         {
             <tr>
                 <th>@coach.Id</th>
                 <th>@coach.FirstName</th>
@@ -28,7 +28,7 @@
                 <th>@coach.Phone</th>
                 <th>@Html.ActionLink("Delete", "Delete", new { Phone = coach.Phone })</th>
             </tr>
-        }
+         }
     </tbody>
 </table>
 

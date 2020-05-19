@@ -28,9 +28,10 @@ namespace FitnessCenter.WebPL.Controllers
         }
 
         [HttpGet]
-        public ActionResult Update(Client client)
+        public ActionResult Update(int id)
         {
-            return View(client);
+
+            return View(_clientlogic.GetById(id));
         }
 
         [HttpPost]
